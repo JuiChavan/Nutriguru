@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.blogs.entities.BlogPost;
+
 @Entity
 public class Nutritionist {
 
@@ -35,7 +37,7 @@ public class Nutritionist {
     private Appointment appointment;
 	// One nutritionist belongs to many client
 	@OneToMany(mappedBy = "nutritionist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Client> client = new ArrayList<Client>();
+	private List<Client> clients = new ArrayList<Client>();
 	//private Client client;
 
 	// One nutritionist belongs to many diet plan
@@ -47,4 +49,17 @@ public class Nutritionist {
 	@ManyToOne
 	@JoinColumn(name = "category_Id")
 	private Category category;
+	
+	//helper mathod
+	//client has set nutritionist id and book appoinmnet
+	public void bookClient(Client client) {
+		clients.add(client);
+		client.setNutritionist(this);
+	}
+	//for cancelling appoinmnet client remove nutri id
+	public void removeClient(Client client) {
+		clients.remove(client);
+		client.setNutritionist(null);
+	}
+	
 }
