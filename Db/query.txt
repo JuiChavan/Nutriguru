@@ -1,0 +1,102 @@
+*client=> nutri->getAllClient(get by nutritionistId)
+          bookAppoinmnet(1.-> show all nutritionist 2.-> show all available timeslots 3.-> payment)   
+          updateProfile()
+          getDietPlan()
+          getClientHistory()
+*nutritionist=> getAllAppoinmnet()
+                deleteAppoinmnet()
+                setDietPlan()
+                getClientHistory()    
+
+ appointment            |
+| billing                |
+| category               |
+| client                 |
+| client_history         |
+| diet_plan              |
+| nutritionist           |
+| nutritionist_diet_plan |
+| time_slot 
+
+ id              | bigint       | NO   | PRI | NULL    | auto_increment |
+| address_line1   | varchar(255) | YES  |     | NULL    |                |
+| address_line2   | varchar(255) | YES  |     | NULL    |                |
+| coutry_code     | int          | NO   |     | NULL    |                |
+| state           | varchar(255) | YES  |     | NULL    |                |
+| zip_code        | int          | NO   |     | NULL    |                |
+| age             | int          | NO   |     | NULL    |                |
+| contact         | varchar(255) | YES  |     | NULL    |                |
+| dob             | date         | YES  |     | NULL    |                |
+| email           | varchar(255) | YES  |     | NULL    |                |
+| name            | varchar(255) | YES  |     | NULL    |                |
+| password        | varchar(255) | YES  |     | NULL    |                |
+appointment_id
+| nutritionist_id
+
+
+
+insert into client values(1,"shivajinager","sangli",91,"Maharashtra",416416,27,"8600732866","1997-09-08","abc@gmail.com","abc","abc@123",1,1);
+
+ id                 | bigint       | NO   | PRI | NULL    | auto_increment |
+| qualification      | varchar(255) | YES  |     | NULL    |                |
+| consulatation_fees | double       | NO   |     | NULL    |                |
+| email              | varchar(255) | YES  |     | NULL    |                |
+| name               | varchar(255) | YES  |     | NULL    |                |
+| password           | varchar(255) | YES  |     | NULL    |                |
+| rating             | double       | NO   |     | NULL    |                |
+| appointement_id    | bigint       | YES  | MUL | NULL    |                |
+| category_id        | bigint       | YES  | MUL | NULL    |                |
+
+insert into nutritionist values(1,"BAMS",7000,"x@gmail.com","xyz","xyz@1239",4,1,1);
+
+
+
+ id        | bigint | NO   | PRI | NULL    | auto_increment |
+| time_slot | bigint | YES  | MUL | NULL    
+
+
+insert into appointment values (1,1)
+
++-----------+--------------+------+-----+---------+----------------+
+| id        | bigint       | NO   | PRI | NULL    | auto_increment |
+| date      | date         | YES  |     | NULL    |                |
+| time_slot | varchar(255) | YES  |     | NULL    |             
+
+
+
+insert into time_slot values(1,"2024-12-11","MORNING")
+
+ id          | bigint       | NO   | PRI | NULL    | auto_increment |
+| description | varchar(255) | YES  |     | NULL    |                |
+| name    
+
+insert into category values(1,"sport category","xyz");
+
+ id              | bigint       | NO   | PRI | NULL    | auto_increment |
+| name            | varchar(255) | YES  |     | NULL    |                |
+| email           | varchar(255) | YES  |     | NULL    |                |
+| fee             | double       | NO   |     | NULL    |                |
+| nutritionist_id |
+
+
+insert into billing values(1,"abc","abc@gmail.com",7500,1);
+
+ id              | bigint       | NO   | PRI | NULL    | auto_increment |
+| appointement_id | bigint       | YES  |     | NULL    |                |
+| description     | varchar(255) | YES  |     | NULL    |                |
+| nutritionist_id | bigint 
+
+
+insert into diet_plan values(1,"diet plan of abc",1);
+
+
+
+
+insert into time_slot values(1,"2024-12-11","MORNING");
+insert into appointment values (1,1);
+insert into diet_plan values(1,"diet plan of abc",1);
+insert into category values(1,"sport category","xyz");
+insert into nutritionist values(1,"BAMS",7000,"x@gmail.com","xyz","xyz@1239",4,1,1);
+insert into client values(1,"shivajinager","sangli",91,"Maharashtra",416416,27,"8600732866","1997-09-08","abc@gmail.com","abc","abc@123",1,1);
+
+
