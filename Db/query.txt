@@ -92,11 +92,22 @@ insert into diet_plan values(1,"diet plan of abc",1);
 
 
 
+
 insert into time_slot values(1,"2024-12-11","MORNING");
 insert into appointment values (1,1);
 insert into diet_plan values(1,"diet plan of abc",1);
 insert into category values(1,"sport category","xyz");
+
 insert into nutritionist values(1,"BAMS",7000,"x@gmail.com","xyz","xyz@1239",4,1,1);
+--
+insert into nutritionist values (1, 'BAMS', 5000, 'veethikadas@gmail.com', 'Veethika Das', 'veethiks', 4, 1, 1);
+insert into nutritionist values (2, 'BAMS', 5000, 'bhagwatiuraon@gmail.com', 'Bhagawati Uraon', 'bhagwati', 4, 1, 1);
+insert into nutritionist values (3, 'MBBS, MD', 10000, 'ranjanjoshi@gmail.com', 'Ranjan Joshi', 'ranjan', 4, 1, 1);
+insert into nutritionist values (4, 'MSC', 3000, 'kaveripatil@gmail.com', 'Kaveri Patil', 'kaveri', 4, 1, 1);
+insert into nutritionist values (5, 'MSC', 3000, 'SonaliMohite@gmail.com', 'Sonali Mohite', 'Sonali', 4, 1, 1);
+
+
 insert into client values(1,"shivajinager","sangli",91,"Maharashtra",416416,27,"8600732866","1997-09-08","abc@gmail.com","abc","abc@123",1,1);
+
 
 
