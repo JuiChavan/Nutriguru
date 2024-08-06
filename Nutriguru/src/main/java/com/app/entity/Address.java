@@ -1,5 +1,3 @@
-//demo
-
 package com.app.entity;
 
 import javax.persistence.Embeddable;
@@ -14,6 +12,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Embeddable
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Address {	
 	
 	private String addressLine1;

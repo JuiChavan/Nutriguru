@@ -14,9 +14,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import com.blogs.entities.BlogPost;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 
 @Entity
+@Getter
+@Setter
+@ToString(exclude = {"appointment","clients","category"})
+
 public class Nutritionist {
 
 	@Id
@@ -36,7 +45,8 @@ public class Nutritionist {
 	//private List<Appointment> appointements = new ArrayList<Appointment>();
     private Appointment appointment;
 	// One nutritionist belongs to many client
-	@OneToMany(mappedBy = "nutritionist", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "nutritionist", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JsonIgnore
 	private List<Client> clients = new ArrayList<Client>();
 	//private Client client;
 
@@ -48,6 +58,7 @@ public class Nutritionist {
 	// Many nutritionist belongs to one category
 	@ManyToOne
 	@JoinColumn(name = "category_Id")
+	@JsonIgnore
 	private Category category;
 	
 	//helper mathod

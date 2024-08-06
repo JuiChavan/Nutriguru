@@ -8,10 +8,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +26,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+
 @Entity
 public class TimeSlot {
 
@@ -33,7 +38,11 @@ public class TimeSlot {
 	private Slot timeSlot;
 	
 	//One time slot belongs to many appointment
-	@OneToMany(mappedBy = "timeSlot", cascade = CascadeType.ALL)
-	private List<Appointment> appintementId = new ArrayList<Appointment>();
+	/*
+	 * @OneToMany(mappedBy = "timeSlot", cascade = CascadeType.ALL)
+	 * 
+	 * @JsonIgnore private List<Appointment> appintementId = new
+	 * ArrayList<Appointment>();
+	 */
 
 }
