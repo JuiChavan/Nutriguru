@@ -1,0 +1,77 @@
+.sign-in {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .sign-in-form-container {
+    width: 50%;
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .signIn-form {
+    width: 70%;
+    border: 1px solid black;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .signIn-label {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .signIn-input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  
+  .signIn-btnSubmit {
+    width: 100%;
+    height: 40px;
+    background-color: #128542;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .signIn-btnSubmit:hover {
+    background-color: #3e8e41;
+  }
+  
+  .sign-in-bg-container {
+    margin-top: 1px;
+    width: 50%;
+    background-image: url('https://i.pinimg.com/564x/f2/0d/cb/f20dcbe42f3e545eb1de99ca7c8fdd9c.jpg');
+    background-size: cover;
+    background-position: center;
+    
+  }
+
+  .signIn-page-footer {
+    margin: 3px; /* Ensure no margin affects the width */
+    text-align: center;
+    width: 40%;
+    margin-left: 50px;
+    position: fixed;           /* Fix the footer to the bottom of the page */
+    bottom: 0;
+     }
+
+  .signIn-page-footer p {
+    font-weight: bold;
+    font-size: 13px;
+    margin: 5px; /* Ensure no margin affects the width */
+    color: #8b9297; /* Desired text color */
+    margin: 0; /* Remove default margin */
+  }
