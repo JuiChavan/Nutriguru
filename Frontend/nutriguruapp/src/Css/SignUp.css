@@ -1,0 +1,89 @@
+.sign-up {
+  margin-top: 40px;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sign-up-form-container {
+  margin-top: 200px;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #f7f7f7; */
+}
+
+.signUp-form {
+  width: 600px;
+  height: 177vh;
+  margin-left: 40px;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  /* border-radius: 10px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sign-in-bg-container {
+  width: 60%;
+  margin-top: -50px;
+  height: 170vh; /* Add this line to increase the height of the background image */
+
+  background-image: url('../Images/BookYourBite.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.signUp-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.gender-label{
+  margin-left: 15px;
+}
+
+.signUp-input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signUp-btnSubmit {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signUp-btnSubmit:hover {
+  background-color: #3e8e41;
+}
+
+.gender-label {
+  margin-right: 20px;
+}
+
+/* Add some responsiveness */
+@media only screen and (max-width: 768px) {
+  .sign-up {
+    flex-direction: column;
+  }
+  .sign-up-form-container {
+    width: 100%;
+  }
+  .sign-in-bg-container {
+    width: 100%;
+    height: 200px;
+  }
+}
