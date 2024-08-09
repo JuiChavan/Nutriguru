@@ -109,5 +109,24 @@ insert into nutritionist values (5, 'MSC', 3000, 'SonaliMohite@gmail.com', 'Sona
 
 insert into client values(1,"shivajinager","sangli",91,"Maharashtra",416416,27,"8600732866","1997-09-08","abc@gmail.com","abc","abc@123",1,1);
 
+//according to new changes
 
+insert into user values(1,"sangli","mha",91,"state",21222,23,"987654411","2001-09-09","u1@gmail.com","u1","u1");
+
+insert into category values(1,"sport category","c1");
+insert into category values(2,"weight management category","c2");
+
+insert into nutritionist values(1,"BAMS",7000,"n1@gmail.com","n1","n1",3.5,1);
+insert into nutritionist values(2,"BAMS",5000,"n2@gmail.com","n2","n2",4,2);
+
+
+insert into appointment values (1,"2024-08-08","MORNING",1);
+insert into appointment values (2,"2024-08-08","MORNING",2);
+
+insert into client values(1,"addr1","addr2",1,"Mh",101,23,"1234567890","2001-02-02","a@gmail.com","a","a",1,null,1);
+insert into diet_plan values(1,"diet plan of a",1);
+ update client set diet_plan_id =1 where id=1;
+
+insert into billing values(1,"a","a@gmail.com",7000,1);
+ 
 
