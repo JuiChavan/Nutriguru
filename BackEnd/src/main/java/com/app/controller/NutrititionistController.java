@@ -34,10 +34,9 @@ public class NutrititionistController {
 		return ResponseEntity.status(HttpStatus.OK).body(nutriList);
 	}
 	
-	//get all appoinmnets 
-	
+	//Get all appoinmnets for today 
 	@GetMapping("/getAllAppoinmnet/{nutritionistId}")
-	public ResponseEntity<?> getAllAppoinmnet(@PathVariable Long nutritionistId){
+	public ResponseEntity<?> getAllAppoinmnetForToday(@PathVariable Long nutritionistId){
 		List<AppoimnetForTodayDto> appoimnet=nutritionistService.getAllAppoinmnetForToday(nutritionistId);
 		return ResponseEntity.status(HttpStatus.OK).body(appoimnet);
 	}

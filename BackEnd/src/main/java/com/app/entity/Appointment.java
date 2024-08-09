@@ -15,10 +15,11 @@ import javax.persistence.OneToOne;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
-
+@ToString
 @Entity
 public class Appointment {
 
@@ -29,11 +30,12 @@ public class Appointment {
 	private LocalDate date;
 	@Enumerated(EnumType.STRING)
 	private Slot timeSlot;
-    @ManyToOne
-    @JoinColumn(name = "nutritionist_Id")
-    private Nutritionist nutritionist;
 
-	
-		
+	@ManyToOne
+	@JoinColumn(name = "nutritionist_Id")
+	private Nutritionist nutritionist;
+
+	@OneToOne(mappedBy = "bookAppointment")
+	private Client client;
+
 }
-

@@ -28,4 +28,8 @@ public class AppoimnetForTodayDto {
     private String nutritionistName;
     private String email;
 
+    private Long clientId;
+    private String clientName;
+    private String clientEmail;
+    
 }
