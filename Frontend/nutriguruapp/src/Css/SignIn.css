@@ -1,77 +1,98 @@
+/* Make sure the sign-in container takes up the full viewport height */
 .sign-in {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sign-in-form-container {
-    width: 50%;
-    background-color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .signIn-form {
-    width: 70%;
-    border: 1px solid black;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
-    padding: 30px;
-    margin-bottom: 30px;
-  }
-  
-  .signIn-label {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .signIn-input {
-    width: 100%;
-    height: 40px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Full viewport height */
+}
 
-  
-  .signIn-btnSubmit {
-    width: 100%;
-    height: 40px;
-    background-color: #128542;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .signIn-btnSubmit:hover {
-    background-color: #3e8e41;
-  }
-  
-  .sign-in-bg-container {
-    margin-top: 1px;
-    width: 50%;
-    background-image: url('https://i.pinimg.com/564x/f2/0d/cb/f20dcbe42f3e545eb1de99ca7c8fdd9c.jpg');
-    background-size: cover;
-    background-position: center;
-    
-  }
+.sign-in-form-container {
+  flex: 1; /* This will allow the form container to take up remaining space */
+  width: 60%;
+  background-color: #fff;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
 
-  .signIn-page-footer {
-    margin: 3px; /* Ensure no margin affects the width */
-    text-align: center;
-    width: 40%;
-    margin-left: 50px;
-    position: fixed;           /* Fix the footer to the bottom of the page */
-    bottom: 0;
-     }
+.signIn-form {
+  width: 45%;
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
+  padding: 20px;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  margin-left: 520px;
+  opacity: 0.8;
+  background-color: white;
+  text-align: left;
+}
 
-  .signIn-page-footer p {
-    font-weight: bold;
-    font-size: 13px;
-    margin: 5px; /* Ensure no margin affects the width */
-    color: #8b9297; /* Desired text color */
-    margin: 0; /* Remove default margin */
-  }
+.signin-tagline {
+  font-weight: bold;
+  text-shadow: #d22313;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: -5px;
+}
+
+.signIn-label {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.signIn-input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #070000;
+}
+
+.invalid-user {
+  text-align: center;
+  font-size: 15px;
+}
+
+.signIn-btnSubmit {
+  width: 100%;
+  height: 40px;
+  background-color: #a3162f;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signIn-btnSubmit:hover {
+  background-color: #000000;
+}
+
+.sign-in-form-container {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.pexels.com/photos/992816/pexels-photo-992816.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: -25px;
+}
+
+.signIn-page-footer {
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom:-12px;
+}
+
+.signIn-page-footer p {
+  color: #b4b1a7; /* Desired text color */
+  margin: 0; /* Remove default margin */
+}
+
+.sign-up-link {
+  margin-top: 0px;
+  text-align: center;
+}

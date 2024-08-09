@@ -1,77 +1,82 @@
 import { useState } from "react";
-import '../Css/SignUp.css'
-import { Link } from "react-router-dom";
+import '../Css/SignUp.css';
+import UserService from "../Service/UserService";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
-  const [fullName, setFullName] = useState('');
+  const [name, setname] = useState('');
   const [age, setAge] = useState('');
   const [dob, setDob] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [contact, setContact] = useState('');
-  const [address, setAddress] = useState('');
-  const [gender, setGender] = useState('');
+  const [address, setAddress] = useState({
+    addressLine1: 'x',
+    addressLine2: 'y',
+    state: 'z',
+    coutryCode: '123',
+    zipCode: '415'
+  });
 
-  const submit =(email,password)=>{
-    console.log(email, password);
-  }
+  const navigate = useNavigate();
+
+  const submit = () => {
+    const userDetails = {
+      name,
+      email,
+      password,
+      contact,
+      age,
+      dob,
+      address,
+    };
+
+    UserService.signUp(userDetails)
+      .then((resp) => {
+        console.log("User data:", resp.data);
+        navigate('/signIn');
+      })
+      .catch((err) => {
+        console.error("Error in sign-up:", err.response ? err.response.data : err.message);
+        navigate('/signUp');
+      });
+  };
 
   return (
     <div className="sign-up">
       <div className="sign-up-form-container">
         <form className="signUp-form">
-          <br></br>
-          <br></br>
-          <label for="fullName" className="signUp-label">Full Name</label>
-          <br></br>
-          <input className="signUp-input" id="fullName" type="text" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
-          <br></br>
+          <label htmlFor="name" className="signUp-label">Full Name</label>
+          <input className="signUp-input" id="name" type="text" value={name} onChange={(e) => setname(e.target.value)} required />
 
-          <label for="email" className="signUp-label">Email</label>
-          <br></br>
+          <label htmlFor="email" className="signUp-label">Email</label>
           <input className="signUp-input" id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <br></br>
 
-          <label for="age" className="signUp-label">Age</label>
-          <br></br>
+          <label htmlFor="age" className="signUp-label">Age</label>
           <input className="signUp-input" id="age" type="number" value={age} onChange={(e) => setAge(e.target.value)} required />
-          <br></br>
 
-          <label for="dob" className="signUp-label">Dob</label>
-          <br></br>
+          <label htmlFor="dob" className="signUp-label">DOB</label>
           <input className="signUp-input" id="dob" type="date" value={dob} onChange={(e) => setDob(e.target.value)} required />
-          <br></br>
 
-          <label for="password" className="signUp-label">Password</label>
+          <label htmlFor="password" className="signUp-label">Password</label>
           <input className="signUp-input" id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <br></br>
 
-          <label for="contact" className="signUp-label">Contact</label>
+          <label htmlFor="contact" className="signUp-label">Contact</label>
           <input className="signUp-input" id="contact" type="tel" value={contact} onChange={(e) => setContact(e.target.value)} required />
-          <br></br>
 
-          <label for="address" className="signUp-label">Address</label>
-          <input className="signUp-input" id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required />
-          <br></br>
+          {/* <label htmlFor="address" className="signUp-label">Address</label>
+          <input className="signUp-input" id="address" type="text" value={address} onChange={(e) => setAddress(e.target.value)} required /> */}
 
-          <label for="gender" className="signUp-label">Gender</label> <span>  </span>
-          <label  className="gender-label"><input type="radio" name="gender" id="female" value="Female" onChange={(e) => setGender(e.target.value)}/>Female</label>
-          <label  className="gender-label"><input type="radio" name="gender" id="male" value="Male" onChange={(e) => setGender(e.target.value)}/>Male</label>
-          <label  className="gender-label"><input type="radio" name="gender" id="other" value="Other" onChange={(e) => setGender(e.target.value)}/>Other</label>
-          <br></br> 
+          {/* <label htmlFor="gender" className="signUp-label">Gender</label>
+          <label className="gender-label"><input type="radio" name="gender" id="female" value="Female" onChange={(e) => setGender(e.target.value)} />Female</label>
+          <label className="gender-label"><input type="radio" name="gender" id="male" value="Male" onChange={(e) => setGender(e.target.value)} />Male</label>
+          <label className="gender-label"><input type="radio" name="gender" id="other" value="Other" onChange={(e) => setGender(e.target.value)} />Other</label> */}
 
-          <button className="signUp-btnSubmit" onClick={()=>{submit(email,password)}}>
-              Book an appointment
+          <button className="signUp-btnSubmit" type="button" onClick={() => submit(name,email, password,contact,age,dob,address)}>
+            Sign Up
           </button>
-          <br></br>
-          <br></br>
         </form>
       </div>
-      <br></br>
-      {/* <footer className="signUp-page-footer">
-        <p>&copy; 2024 Nutriguru. All rights reserved.</p>
-      </footer> */}
-      <div className="sign-in-bg-container"></div>
     </div>
   );
 }

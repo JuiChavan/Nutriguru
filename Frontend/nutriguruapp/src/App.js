@@ -5,6 +5,8 @@ import KnowYourBody from './Component/KnowYourBody';
 import SignIn from './Component/SignIn';
 import SignUp from './Component/SignUp';
 import GetAllNutritionist from './Component/GetAllNutritionist'
+import BookNutrionistAppointment from './Component/BookNutrionistAppointment';
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ function App() {
         <Route path='/signIn' element={<SignIn/>}/>
         <Route path='/signUp' element={<SignUp/>}/>
         <Route path='/nutritionists' element={<GetAllNutritionist/>}/>
+        <Route path='/bookAppointment' element={<BookNutrionistAppointment/>}/>
 
       </Routes>
     </div>
