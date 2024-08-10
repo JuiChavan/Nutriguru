@@ -1,13 +1,17 @@
 package com.app.service;
 
-import javax.transaction.Transactional;
+import java.time.LocalDate;
 
-import org.springframework.stereotype.Service;
-
+import com.app.custom_exception.SlotsUnavailable;
 import com.app.dto.AppointmentDTO;
+import com.app.entity.Nutritionist;
+import com.app.entity.Slot;
 
 public interface AppointmentService {
 
-	AppointmentDTO bookAppointment(Long userId, Long nutritionistId, String date, String timeSlot);
+	AppointmentDTO bookAppointment(Long userId, Long nutritionistId, String date, String timeSlot)
+			throws SlotsUnavailable;
+
+	public Slot checkAvailableSlots(Slot slot, LocalDate date, Nutritionist nutritionist) throws SlotsUnavailable ;
 
 }

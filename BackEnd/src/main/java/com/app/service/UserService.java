@@ -8,7 +8,7 @@ public interface UserService {
 
 	UserRespDTO authenticateUser(AuthDTO dto);
 	
-	UserRespDTO registerUser(RegisterUserDTO dto);
+	RegisterUserDTO registerUser(RegisterUserDTO dto);
 	
 	UserRespDTO getByEmail(String email);
 

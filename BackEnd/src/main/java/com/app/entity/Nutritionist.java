@@ -1,5 +1,6 @@
 package com.app.entity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,24 +40,15 @@ public class Nutritionist {
 	private double consulatationFees;
 	private String Qualification;
 	private double rating;
+	private int MorningAppointmentCount;
+	private int AfternoonAppointmentCount;
+	private int EveningAppointmentCount;
+	private LocalDate appointmentDate;
 
-	// One nutritionist belongs to one Appointment
-	//@OneToMany(cascade = CascadeType.ALL)
-	/*
-	 * @OneToOne
-	 * 
-	 * @JoinColumn(name = "appointement_Id") private Appointment appointment;
-	 */
 	// One nutritionist belongs to many client
 	@OneToMany(mappedBy = "nutritionist", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JsonIgnore
 	private List<Client> clients = new ArrayList<Client>();
-	//private Client client;
-
-	// One nutritionist belongs to many diet plan
-	/*
-	 * @OneToMany private List<DietPlan> dietPlan = new ArrayList<DietPlan>();
-	 */
 
 	// Many nutritionist belongs to one category
 	@ManyToOne
@@ -76,4 +68,6 @@ public class Nutritionist {
 		client.setNutritionist(null);
 	}
 	
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Appointment> appointments;
 }

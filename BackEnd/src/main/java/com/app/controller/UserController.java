@@ -39,7 +39,7 @@ public class UserController {
 	public ResponseEntity<?> userRegister(@RequestBody RegisterUserDTO registerUserDTO) {
 		System.out.println("in sigup user " + registerUserDTO);
 		try {
-			UserRespDTO respDto = userService.registerUser(registerUserDTO);
+			RegisterUserDTO respDto = userService.registerUser(registerUserDTO);
 			return ResponseEntity.ok(respDto);
 		} catch (RuntimeException e) {
 			// If null received

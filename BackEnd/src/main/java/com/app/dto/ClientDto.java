@@ -1,6 +1,7 @@
 package com.app.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.app.entity.Address;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -24,7 +25,7 @@ public class ClientDto {
 	private LocalDate dob;
 	private Address address;
 	
-	private Long bookAppointmentId;
+    private List<Long> bookAppointmentIds; // Changed to List<Long>
 	 
 	private Long nutritionistId;
     private String dietPlan;

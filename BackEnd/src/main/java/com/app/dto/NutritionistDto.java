@@ -20,6 +20,8 @@ public class NutritionistDto {
 	private String Qualification;
 	private double rating;
 	private String categoryName;
-	
+	private int MorningAppointmentCount;
+	private int AfternoonAppointmentCount;
+	private int EveningAppointmentCount;
 	
 }

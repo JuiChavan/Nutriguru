@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.custom_exception.SlotsUnavailable;
 import com.app.dto.AppointmentDTO;
 import com.app.service.AppointmentService;
 import com.app.service.BookAppointmentDTO;
@@ -20,7 +21,7 @@ public class AppointmentController {
 	AppointmentService appointmentService;
 
 	@PostMapping("/bookAppointment")
-	public ResponseEntity<?> bookAppointment(@RequestBody BookAppointmentDTO appointment ) {
+	public ResponseEntity<?> bookAppointment(@RequestBody BookAppointmentDTO appointment ) throws SlotsUnavailable {
 		System.out.println("data at be "+appointment);
 		AppointmentDTO a = appointmentService.bookAppointment(appointment.getUserId(), appointment.getNutritionistId(), appointment.getDate(), appointment.getTimeSlot());
 		if (a == null) {

@@ -3,24 +3,20 @@ package com.app.service;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.custom_exception.InvalidClientId;
-import com.app.custom_exception.ResourceNotFound;
 import com.app.dto.ClientDto;
 import com.app.dto.RegisterClientDto;
 import com.app.entity.Appointment;
 import com.app.entity.Client;
-import com.app.entity.Nutritionist;
 import com.app.entity.Slot;
-import com.app.repository.AppoinmnetRepository;
+import com.app.repository.AppointmentRepository;
 import com.app.repository.ClientRepository;
 import com.app.repository.NutritionistRepository;
 
@@ -34,11 +30,11 @@ public class ClientServiceImpl implements ClientService {
 	@Autowired
 	private ModelMapper mapper;
 	@Autowired
-	private AppoinmnetRepository appoinmnetRepository;
+	private AppointmentRepository appoinmnetRepository;
 	@Autowired
 	private NutritionistRepository nutritionistRepository;
 
-	//Get list of all client
+	// Get list of all client
 	@Override
 	public List<ClientDto> getAllClient() {
 		return clientRepository.findAll().stream().map(client -> {
@@ -51,13 +47,14 @@ public class ClientServiceImpl implements ClientService {
 			clientDto.setAge(client.getAge());
 			clientDto.setDob(client.getDob());
 			clientDto.setAddress(client.getAddress());
-			clientDto.setBookAppointmentId(client.getBookAppointment().getId());
+			clientDto.setBookAppointmentIds(
+					client.getBookAppointment().stream().map(Appointment::getId).collect(Collectors.toList()));
 			clientDto.setNutritionistId(client.getNutritionist().getId());
 			return clientDto;
 		}).collect(Collectors.toList());
 	}
 
-	//Get Client's diet plan by client Id
+	// Get Client's diet plan by client Id
 	public ClientDto getDietPlan(Long clientId) throws InvalidClientId {
 		Optional<Client> clientOptional = clientRepository.findById(clientId);
 		if (!clientOptional.isPresent()) {
@@ -71,9 +68,12 @@ public class ClientServiceImpl implements ClientService {
 		clientDto.setAge(client.getAge());
 		clientDto.setDob(client.getDob());
 
-		if (client.getBookAppointment() != null) {
-			clientDto.setBookAppointmentId(client.getBookAppointment().getId());
-		}
+
+	    if (client.getBookAppointment() != null) {
+	        clientDto.setBookAppointmentIds(client.getBookAppointment().stream()
+	                                               .map(Appointment::getId)
+	                                               .collect(Collectors.toList()));
+	        }
 		if (client.getNutritionist() != null) {
 			clientDto.setNutritionistId(client.getNutritionist().getId());
 		}
@@ -82,14 +82,14 @@ public class ClientServiceImpl implements ClientService {
 		}
 		return clientDto;
 	}
-
-	//Get all time slots
+//setClientSlots
+	// Get all time slots
 	@Override
 	public List<Slot> getAllTimeSlots() {
 		return Arrays.asList(Slot.values());
 	}
 
-	//Need to update
+	// Need to update
 	@Override
 	public RegisterClientDto registerClient(RegisterClientDto regClientDto) {
 
@@ -100,5 +100,5 @@ public class ClientServiceImpl implements ClientService {
 		clientRepository.save(client);
 		return regClientDto;
 	}
-	 
+
 }

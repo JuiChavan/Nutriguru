@@ -30,17 +30,17 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserRespDTO registerUser(RegisterUserDTO user) {
+	public RegisterUserDTO registerUser(RegisterUserDTO user) {
 		User u = mapper.map(user, User.class);
 		userRepository.save(u);
-		return mapper.map(u, UserRespDTO.class);
+		return mapper.map(u, RegisterUserDTO.class);
 	}
 
 	@Override
 	public UserRespDTO getByEmail(String email) {
-		System.out.println("email "+email);
-		Optional<User> u=userRepository.findByEmail(email);
-		System.out.println("user u "+u.get());
+		System.out.println("email " + email);
+		Optional<User> u = userRepository.findByEmail(email);
+		System.out.println("user u " + u.get());
 		return mapper.map(u.get(), UserRespDTO.class);
 	}
 }

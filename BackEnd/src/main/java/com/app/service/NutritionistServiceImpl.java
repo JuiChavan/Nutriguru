@@ -15,7 +15,7 @@ import com.app.dto.AppoimnetForTodayDto;
 import com.app.dto.NutritionistDto;
 import com.app.entity.Appointment;
 import com.app.entity.Nutritionist;
-import com.app.repository.AppoinmnetRepository;
+import com.app.repository.AppointmentRepository;
 import com.app.repository.NutritionistRepository;
 
 //getAllAppoinmnet
@@ -27,7 +27,7 @@ public class NutritionistServiceImpl implements NutritionistService {
 	private NutritionistRepository nutritionistRepository;
 
 	@Autowired
-	private AppoinmnetRepository appoinmnetRepository;
+	private AppointmentRepository appoinmnetRepository;
 	@Autowired
 	private ModelMapper mapper;
 

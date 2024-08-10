@@ -11,12 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.AppoimnetForTodayDto;
-import com.app.dto.ClientDto;
 import com.app.dto.NutritionistDto;
-import com.app.entity.Appointment;
-import com.app.entity.Nutritionist;
-import com.app.repository.AppoinmnetRepository;
-import com.app.service.ClientService;
 import com.app.service.NutritionistService;
 
 @RestController
@@ -35,7 +30,7 @@ public class NutrititionistController {
 	}
 	
 	//Get all appoinmnets for today 
-	@GetMapping("/getAllAppoinmnet/{nutritionistId}")
+	@GetMapping("/getAllAppoinmnetForToday/{nutritionistId}")
 	public ResponseEntity<?> getAllAppoinmnetForToday(@PathVariable Long nutritionistId){
 		List<AppoimnetForTodayDto> appoimnet=nutritionistService.getAllAppoinmnetForToday(nutritionistId);
 		return ResponseEntity.status(HttpStatus.OK).body(appoimnet);

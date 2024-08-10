@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -9,17 +10,17 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.custom_exception.SlotsUnavailable;
 import com.app.dto.AppointmentDTO;
 import com.app.entity.Appointment;
 import com.app.entity.Client;
 import com.app.entity.Nutritionist;
 import com.app.entity.Slot;
 import com.app.entity.User;
-import com.app.repository.AppoinmnetRepository;
+import com.app.repository.AppointmentRepository;
 import com.app.repository.ClientRepository;
 import com.app.repository.NutritionistRepository;
 import com.app.repository.UserRepository;
-
 
 @Service
 @Transactional
@@ -36,56 +37,90 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	@Autowired
 	private ModelMapper mapper;
-	
+
 	@Autowired
-	AppoinmnetRepository appoinmnetRepository;
+	private AppointmentRepository appointmentRepository;
+
+	public Slot checkAvailableSlots(Slot slot, LocalDate date, Nutritionist nutritionist) throws SlotsUnavailable {
+		// find count in Nutritionist table matched by id,date,Slot
+		Integer count = nutritionistRepository.findCountByNutrtionistIdAndDateAndTimeSlot(nutritionist.getId(), date,
+				slot);
+		System.out.println("get count " +count);
+		if (count == null) {
+			count = 0; // Initialize count if it's null
+		}
+
+		if (count >= 3) {
+			throw new SlotsUnavailable("Slots Unavailable");
+		}
+		return slot;
+	}
 
 	@Override
-	public AppointmentDTO bookAppointment(Long userId, Long nutritionistId, String date, String timeSlot) {
+
+	public AppointmentDTO bookAppointment(Long userId, Long nutritionistId, String date, String timeSlot)
+			throws SlotsUnavailable {
 		Optional<User> user = userRepository.findById(userId);
 		Optional<Nutritionist> nutritionist = nutritionistRepository.findById(nutritionistId);
 
-		Client client = new Client();
-		client.setId(user.get().getId());
-		client.setName(user.get().getName());
-		client.setEmail(user.get().getEmail());
-		client.setPassword(user.get().getPassword());
-		client.setContact(user.get().getContact());
-		client.setAge(user.get().getAge());
-		client.setAddress(user.get().getAddress());
-		client.setDob(user.get().getDob());
-		client.setNutritionist(nutritionist.get());
-		
-		// creating client from user info
-		clientRepository.save(client);
+		LocalDate bookedDate = LocalDate.parse(date);
+		Slot slot = Slot.valueOf(timeSlot.toUpperCase());
 
-        System.out.println("The selected nutri is "+nutritionist.get());
-		//Parsing
-		LocalDate bookedDate=LocalDate.parse(date);
-	    Slot bookedSlot=Slot.valueOf(timeSlot);
-		
+		slot = checkAvailableSlots(slot, bookedDate, nutritionist.get());
+			if (slot == Slot.AFTERNOON) {
+				nutritionist.get().setAfternoonAppointmentCount(nutritionist.get().getAfternoonAppointmentCount() + 1);
+			} else if (slot == Slot.MORNING) {
+				nutritionist.get().setMorningAppointmentCount(nutritionist.get().getMorningAppointmentCount() + 1);
+			} else if (slot == Slot.EVENING) {
+				nutritionist.get().setEveningAppointmentCount(nutritionist.get().getEveningAppointmentCount() + 1);
+			
+		}
+		Slot bookedSlot = Slot.valueOf(timeSlot.toUpperCase());
+
+	//	Client client = clientRepository.findById(userId).orElseGet(() -> {
+			Client newClient = new Client();
+			newClient.setId(user.get().getId());
+			newClient.setName(user.get().getName());
+			newClient.setEmail(user.get().getEmail());
+			newClient.setPassword(user.get().getPassword());
+			newClient.setContact(user.get().getContact());
+			newClient.setAge(user.get().getAge());
+			newClient.setTimeSlot(bookedSlot.getDescription().toString());
+			newClient.setAddress(user.get().getAddress());
+			newClient.setDob(user.get().getDob());
+			newClient.setNutritionist(nutritionist.get());
+			 clientRepository.save(newClient);
+	//	});
+
+		// Ensure the bookAppointment list is initialized
+		if (newClient.getBookAppointment() == null) {
+			newClient.setBookAppointment(new ArrayList<>()); // Initialize if null
+		}
+
 		Appointment appointment = new Appointment();
 		appointment.setNutritionist(nutritionist.get());
 		appointment.setDate(bookedDate);
-		appointment.setTimeSlot(bookedSlot);
-		appointment.setClient(client);
-		
-		
-		appoinmnetRepository.save(appointment);
-		client.setBookAppointment(appointment);
-		clientRepository.save(client);
-		
-		AppointmentDTO appointmentDTO=mapper.map(appointment, AppointmentDTO.class);
-		
-		appointmentDTO.setClientName(appointment.getClient().getName());
-		appointmentDTO.setClientId(appointment.getClient().getId());
-		appointmentDTO.setClientEmail(appointment.getClient().getEmail());
-		
-		appointmentDTO.setNutritionistId(appointment.getNutritionist().getId());
-		appointmentDTO.setNutritionistName(appointment.getNutritionist().getName());
-		appointmentDTO.setEmail(appointment.getNutritionist().getEmail());
+		appointment.setTimeSlot(slot);
+		appointment.setClient(newClient);
+		appointmentRepository.save(appointment);
+
+		nutritionist.get().getAppointments().add(appointment);
+		nutritionist.get().setAppointmentDate(appointment.getDate());
+        nutritionistRepository.save(nutritionist.get());
+
+		// Save client once after adding the appointment
+        newClient.getBookAppointment().add(appointment);
+        newClient.addAppointment(appointment);
+		clientRepository.save(newClient);
+
+		AppointmentDTO appointmentDTO = mapper.map(appointment, AppointmentDTO.class);
+		appointmentDTO.setClientName(newClient.getName());
+		appointmentDTO.setClientId(newClient.getId());
+		appointmentDTO.setClientEmail(newClient.getEmail());
+		appointmentDTO.setNutritionistId(nutritionist.get().getId());
+		appointmentDTO.setNutritionistName(nutritionist.get().getName());
+		appointmentDTO.setEmail(nutritionist.get().getEmail());
 
 		return appointmentDTO;
 	}
-
 }
