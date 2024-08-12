@@ -58,7 +58,10 @@ export default function Home(){
 
 
       <div className='tagline'>
-      <p>Book Your Healthy Bites With Us</p>
+        <div className='tagline-book'>
+        <p>Book Your Healthy Bites With Us</p>
+
+        </div>
       <button className='byb-consult-us-btn'>
         Consult Us
       </button>
@@ -68,7 +71,7 @@ export default function Home(){
         <p>Transform Your Health Today</p>
         <h3>Join Nuriguru and start your wellness journy</h3>
         <button className='join-now-btn'>
-        Consult Us
+        Join Us
       </button>
       </div>
        <footer className="home-page-footer">

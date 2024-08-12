@@ -20,9 +20,10 @@
   }
 
   .title-header h1{
-    font-size: 25px;
+    font-size: 29px;
     font-weight: bold;
     color: #00070b; 
+    margin-top: -8px;
   }
 .sub{
     font-size: 12px;
@@ -48,7 +49,7 @@
     padding: 20px;
     padding-left : 25px;
     padding-top: 15px;
-    font-size: 15px;
+    font-size: 17px;
     padding-bottom: 15px;
    /* background-color: #abcecf; /* Replace with your desired background color */
     color: #020f11; /* Replace with your desired color for nav links */
@@ -71,8 +72,9 @@
   .home-page-footer {
     text-align: center;
     width: 100%;
-    border: 1px solid;
+    /* border: 1px solid; */
     bottom: 0;
+    font-weight: 4px;
     border-radius: 6px;
     background-color: #f9d9d579; /* Desired background color */
     padding: 5px; /* Optional: Add padding for spacing */
@@ -80,7 +82,9 @@
   }
   
   .home-page-footer p {
-    font-weight: bold;
+    text-align: center;
+    font-weight: 42px;
+    /* font-weight: bold; */
     margin: 10px; /* Ensure no margin affects the width */
     color: #041018; /* Desired text color */
     margin: 0; /* Remove default margin */
@@ -150,43 +154,51 @@
     width: 100%;
     content: "";
   }
-
   .tagline {
     margin-top: -78px;
     width: 100%;
+    padding-top: 180px;
     height: 350px;
     background-image: url("../Images/Home.jpeg");
     background-size: cover; /* Ensures the image covers the whole container */
     background-position: center; /* Centers the image */
     background-attachment: fixed; /* Keeps the image fixed during scrolling */
     background-repeat: no-repeat;
-    /* position: absolute; position the element absolutely */
-    bottom: 20px; /* position at the bottom with a 20px gap */
-    left: 20px; /* position at the left with a 20px gap */
-    z-index: 1; /* ensure the text is on top of the background image */
-    display: flex; /* use flexbox to center the text horizontally */
-    justify-content: center;
-    align-items: center; /* align the text to the left */
-    display: flex; /* use flexbox to stack elements vertically */
-    flex-direction: column; /* stack elements vertically */
+    position: relative; /* Make sure the element is positioned correctly */
+    display: flex; /* Use flexbox to center the content */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center items vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center text horizontally */
+    color: black; /* Text color */
   }
   
   .tagline p {
-    text-align: center ; /* remove default paragraph margin */
-    font-size: 28px; /* adjust font size as needed */
-    color: black;
+    font-size: 28px; /* Adjust font size as needed */
     background-color: #e38918;
-    margin-bottom: 20px;
+    margin: 0 0 20px 0; /* Remove default paragraph margin, add bottom margin */
     opacity: 0.7;
     padding: 15px;
     border-radius: 50px;
     border: 1px solid rgb(0, 0, 0);
     box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
     font-weight: bold;
-     /* adjust text color as needed */
-    text-shadow: 0 0 10px rgba(9, 111, 0, 0.5); /* add text shadow for better readability */
+    text-shadow: 0 0 10px rgba(9, 111, 0, 0.5); /* Add text shadow for better readability */
   }
-
+  .tagline-book p{
+    margin-top: -150px;
+  }
+  .join-now-btn {
+    background-color: #e38918;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
   .byb-consult-us-btn{
     margin: 10px;
     border: 40px;
@@ -230,6 +242,7 @@
   .join-now p{
     font-size: 35px;
     font-weight: bold;
+    text-align: center;
   }
 
   .join-now h3{

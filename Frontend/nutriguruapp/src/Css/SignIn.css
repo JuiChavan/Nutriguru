@@ -81,7 +81,6 @@
 }
 
 .signIn-page-footer {
-  text-align: center;
   width: 100%;
   margin-top: 10px;
   margin-bottom:-12px;
@@ -90,6 +89,7 @@
 .signIn-page-footer p {
   color: #b4b1a7; /* Desired text color */
   margin: 0; /* Remove default margin */
+  text-align: center;
 }
 
 .sign-up-link {
