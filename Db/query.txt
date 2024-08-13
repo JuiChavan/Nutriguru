@@ -111,13 +111,17 @@ insert into client values(1,"shivajinager","sangli",91,"Maharashtra",416416,27,"
 
 //according to new changes
 
-insert into user values(1,"sangli","mha",91,"state",21222,23,"987654411","2001-09-09","u1@gmail.com","u1","u1");
+use nutri;
+
+insert into user values(1,"sangli","mha",91,"state",456,23,"1234567890","2001-09-09","u1@gmail.com","u1","u1");
+
+insert into user values(2,"pune","mha",91,"state",123,25,"0987654321","2001-02-09","u2@gmail.com","u2","u2");
 
 insert into category values(1,"sport category","c1");
 insert into category values(2,"weight management category","c2");
 
-insert into nutritionist values(1,"BAMS",7000,"n1@gmail.com","n1","n1",3.5,1);
-insert into nutritionist values(2,"BAMS",5000,"n2@gmail.com","n2","n2",4,2);
+insert into nutritionist values(1,0,0,0,"BAMS",null,7000,"n1@gmail.com","n1","n1",3.5,1);
+insert into nutritionist values(2,0,0,0,"BAMS",null,5000,"n2@gmail.com","n2","n2",4.5,1);
 
 
 insert into appointment values (1,"2024-08-08","MORNING",1);
