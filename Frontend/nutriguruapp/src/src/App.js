@@ -18,6 +18,7 @@ function App() {
         <Route path='/signUp' element={<SignUp/>}/>
         <Route path='/nutritionists' element={<GetAllNutritionist/>}/>
         <Route path='/bookAppointment' element={<BookNutrionistAppointment/>}/>
+        <Route path='/blogs' element={<Blogs/>}/>
 
       </Routes>
     </div>

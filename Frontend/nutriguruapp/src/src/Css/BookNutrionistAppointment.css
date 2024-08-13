@@ -1,0 +1,71 @@
+/* BookNutrionistAppointment.css */
+
+.bacontainer {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background: #f9f9f9;
+    border-radius: 8px;
+    align-items: left;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ba h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .ba h2 {
+    color: #555;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .ba div {
+    margin-bottom: 20px;
+  }
+  
+  .ba label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .ba input[type="date"],
+  .bainput[type="radio"] {
+    margin-right: 10px;
+  }
+  
+  .ba input[type="radio"] {
+    margin: 0 5px;
+  }
+  
+  .ba button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .ba button:hover {
+    background-color: #0056b3;
+  }
+  
+  .ba button:focus {
+    outline: none;
+  }
+  
+  .ba p {
+    margin: 5px 0;
+  }
+  
+ 
