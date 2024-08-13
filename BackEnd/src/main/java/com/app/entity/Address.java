@@ -18,8 +18,7 @@ import lombok.ToString;
 @NoArgsConstructor
 public class Address {	
 	
-	private String addressLine1;
-	private String addressLine2;
+	private String addressLine;
 	private String state;
 	private int coutryCode;
 	private int zipCode;

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.AuthDTO;
 import com.app.dto.RegisterUserDTO;
+import com.app.dto.ResponseRegisterDto;
 import com.app.dto.UserRespDTO;
 import com.app.service.UserService;
 
@@ -39,7 +40,7 @@ public class UserController {
 	public ResponseEntity<?> userRegister(@RequestBody RegisterUserDTO registerUserDTO) {
 		System.out.println("in sigup user " + registerUserDTO);
 		try {
-			RegisterUserDTO respDto = userService.registerUser(registerUserDTO);
+			ResponseRegisterDto respDto = userService.registerUser(registerUserDTO);
 			return ResponseEntity.ok(respDto);
 		} catch (RuntimeException e) {
 			// If null received
@@ -47,19 +48,19 @@ public class UserController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not registered");
 		}
 	}
-	
+
 	@GetMapping("/findByEmail")
-	public ResponseEntity<?> findByEmail(@RequestParam String email){
-		System.out.println("Email received "+email);
+	public ResponseEntity<?> findByEmail(@RequestParam String email) {
+		System.out.println("Email received " + email);
 		try {
 			UserRespDTO respDto = userService.getByEmail(email);
-			System.out.println("resp " +respDto);
+			System.out.println("resp " + respDto);
 			return ResponseEntity.ok(respDto);
 		} catch (RuntimeException e) {
 			// If null received
 			System.out.println(e);
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
 		}
-		
+
 	}
 }

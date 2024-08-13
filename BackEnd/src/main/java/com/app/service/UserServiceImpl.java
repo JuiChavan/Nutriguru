@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.app.dto.AuthDTO;
 import com.app.dto.RegisterUserDTO;
+import com.app.dto.ResponseRegisterDto;
 import com.app.dto.UserRespDTO;
+import com.app.entity.Role;
 import com.app.entity.User;
 import com.app.repository.UserRepository;
 
@@ -30,10 +32,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public RegisterUserDTO registerUser(RegisterUserDTO user) {
-		User u = mapper.map(user, User.class);
-		userRepository.save(u);
-		return mapper.map(u, RegisterUserDTO.class);
+	public ResponseRegisterDto registerUser(RegisterUserDTO user) {
+		Role role = Role.valueOf(user.getRole().toUpperCase());
+		User newUser = mapper.map(user, User.class);
+		newUser.setRole(role);
+		userRepository.save(newUser);
+		return mapper.map(newUser, ResponseRegisterDto.class);
 	}
 
 	@Override

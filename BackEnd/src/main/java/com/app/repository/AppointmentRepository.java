@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.app.entity.Appointment;
+import com.app.entity.Client;
 import com.app.entity.Nutritionist;
 import com.app.entity.Slot;
 
@@ -17,5 +18,8 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Long> 
 
 	List<Appointment> findByNutritionistAndDate(Nutritionist nutri, LocalDate date);
 
+	Appointment findByClientAndDate(Client client, LocalDate bookedDate);
+
+	List<Appointment> findByDate(LocalDate date);
 
 }
