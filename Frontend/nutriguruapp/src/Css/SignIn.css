@@ -1,0 +1,102 @@
+/* Make sure the sign-in container takes up the full viewport height */
+.sign-in {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  min-height: 510px; /* Full viewport height */
+}
+
+.sign-in-form-container {
+  flex: 1; /* This will allow the form container to take up remaining space */
+  width: 60%;
+  background-color: #fff;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.signIn-form {
+  width: 45%;
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
+  padding: 20px;
+  z-index: 2;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  background-color: white;
+  text-align: left;
+  margin-left: 650px;
+  margin-top:70px
+}
+
+.signin-tagline {
+  font-weight: bold;
+  text-shadow: #d22313;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: -5px;
+}
+
+.signin-tagline p{
+  text-align: center;
+}
+.signIn-label {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.signIn-input {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #070000;
+}
+
+.invalid-user {
+  text-align: center;
+  font-size: 15px;
+}
+
+.signIn-btnSubmit {
+  width: 100%;
+  height: 40px;
+  background-color: #a3162f;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signIn-btnSubmit:hover {
+  background-color: #000000;
+}
+
+.sign-in-form-container {
+  width: 100%;
+  height: 100%;
+  background-image: url('../Images//signIn.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-bottom: -25px;
+}
+
+.signIn-page-footer {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom:-12px;
+}
+
+.signIn-page-footer p {
+  color: #b4b1a7; /* Desired text color */
+  margin: 0; /* Remove default margin */
+  text-align: center;
+}
+
+.sign-up-link {
+  margin-top: 0px;
+  text-align: center;
+}

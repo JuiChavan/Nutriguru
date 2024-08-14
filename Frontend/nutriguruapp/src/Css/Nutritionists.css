@@ -1,0 +1,73 @@
+.nutritionists-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nutritionists-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  /* flex-direction: column; Change to column to stack items vertically */
+  /* align-items: center;     */
+  
+}
+
+.nutritionist-card {
+  
+  display: flex;
+  align-items: flex-start;
+  margin: 15px;
+  padding: 20px;
+  width: 500px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.nutritionist-details b,p {
+  flex: 1;
+  text-align: left;
+}
+
+.profile-pic {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  margin-right: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-pic img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 60%;
+}
+
+ /* Book nutritionist btn css */
+.book-nutritionist{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.nutritionist-details {
+  flex: 1;
+}
+
+/* Card-details */
+.nutritionist-card b {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.nutritionist-card p {
+  font-size: 20px;
+  margin-bottom: 10px; 
+
+}
