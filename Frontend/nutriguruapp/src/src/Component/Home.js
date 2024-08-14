@@ -17,6 +17,9 @@ export default function Home(){
   const getAllNutriGuru=()=>{
     navigate('/nutritionists');
   }
+  const blogPage=()=>{
+    navigate('/blogs')   //Navigate to the Blog page
+  }
   return (
     <div className='div-body'>
 
@@ -32,7 +35,7 @@ export default function Home(){
           </div >
             <Nav.Link className='nav-link ' onClick={()=>{bmiPage()}}>BMI Calculator</Nav.Link>
             <Nav.Link className='nav-link '>About Us</Nav.Link>
-            <Nav.Link className='nav-link '>Blogs</Nav.Link>
+            <Nav.Link className='nav-link ' onClick={blogPage}>Blogs</Nav.Link>
             <Nav.Link className='nav-link ' onClick={()=>{getAllNutriGuru()}}>Book Appointment</Nav.Link>
             
           </Nav>
