@@ -89,6 +89,7 @@ public class NutritionistServiceImpl implements NutritionistService {
 
 	@Override
 	public DietPlanDto addDietPlan(Long clientId, DietPlanDto dietPlanDto) {
+		System.out.println("cid "+clientId+" d "+dietPlanDto);
 		Optional<Client> client=clientRepository.findById(clientId);
 		  if (!client.isPresent()) {
 		        throw new ResourceNotFound("Client not found with ID: " + clientId);
