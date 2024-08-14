@@ -11,11 +11,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.app.custom_exception.ResourceNotFound;
 import com.app.dto.AppoimnetForTodayDto;
+import com.app.dto.DietPlanDto;
 import com.app.dto.NutritionistDto;
 import com.app.entity.Appointment;
+import com.app.entity.Client;
+import com.app.entity.DietPlan;
+import com.app.entity.DietPlanProgram;
 import com.app.entity.Nutritionist;
 import com.app.repository.AppointmentRepository;
+import com.app.repository.ClientRepository;
+import com.app.repository.DietPlanRepository;
 import com.app.repository.NutritionistRepository;
 
 //getAllAppoinmnet
@@ -31,7 +38,11 @@ public class NutritionistServiceImpl implements NutritionistService {
 	@Autowired
 	private ModelMapper mapper;
 
+	@Autowired ClientRepository clientRepository;
 	// Find all nutritionists
+	
+	@Autowired 
+	DietPlanRepository dietPlanRepository;
 	@Override
 	public List<NutritionistDto> getAllNutritionist() {
 
@@ -74,6 +85,23 @@ public class NutritionistServiceImpl implements NutritionistService {
 			appoimnetForTodayDtos.add(appoimnetForTodayDto);
 		}
 		return appoimnetForTodayDtos;
+	}
+
+	@Override
+	public DietPlanDto addDietPlan(Long clientId, DietPlanDto dietPlanDto) {
+		Optional<Client> client=clientRepository.findById(clientId);
+		  if (!client.isPresent()) {
+		        throw new ResourceNotFound("Client not found with ID: " + clientId);
+		    }
+		Client c=client.get();
+		
+		DietPlan dietPlan=new DietPlan();
+		dietPlan.setDescription(dietPlanDto.getDescription());
+		dietPlan.setProgram(DietPlanProgram.valueOf(dietPlanDto.getProgram().toUpperCase()));
+		dietPlan.setAppointment(c.getBookAppointment().get(0));
+		c.setDietPlan(dietPlan);
+		dietPlanRepository.save(dietPlan);
+		return mapper.map(dietPlan, DietPlanDto.class);
 	}
 
 }

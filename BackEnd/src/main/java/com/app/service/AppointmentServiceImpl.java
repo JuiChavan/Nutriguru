@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -71,21 +72,20 @@ public class AppointmentServiceImpl implements AppointmentService {
 		// get client by appointment date and find its email and check with user email
 		List<Appointment> c1 = appointmentRepository.findByDate(bookedDate);
 		for (Appointment a : c1) {
-		String email=a.getClient().getEmail();
-		System.err.println("em "+email+"uemail "+user.get().getEmail());
-		if(email.equals(user.get().getEmail())){
-			System.out.println("email check");
-			throw new AlreadyExistsException("alredy???");
+			String email = a.getClient().getEmail();
+			System.err.println("em " + email + "uemail " + user.get().getEmail());
+			if (email.equals(user.get().getEmail())) {
+				System.out.println("email check");
+				throw new AlreadyExistsException("alredy???");
+			}
 		}
-		}
-		
+
 //		Optional<Client> clientOptional = c1.stream().filter(app -> user.get().getEmail().equals(client.getEmail()))
 //				.findFirst();
 //		if (clientOptional.isPresent()) {
 //			throw new AlreadyExistsException("alredy???");
 //		}
-		
-		
+
 		Slot slot = Slot.valueOf(timeSlot.toUpperCase());
 
 		slot = checkAvailableSlots(slot, bookedDate, nutritionist.get());
@@ -146,4 +146,26 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 		return appointmentDTO;
 	}
+
+	@Override
+	public List<AppointmentDTO> getAllAppointmentsByNutritionist(Long id) {
+		
+	    List<Appointment> appointments = appointmentRepository.findAllByNutritionistId(id);
+	    return appointments.stream()
+	            .map(appointment -> {
+	                AppointmentDTO dto = new AppointmentDTO();
+	                dto.setId(appointment.getId());
+	                dto.setDate(appointment.getDate());
+	                dto.setTimeSlot(appointment.getTimeSlot());
+	                dto.setClientId(appointment.getClient().getId());
+	                dto.setClientName(appointment.getClient().getName());
+	                dto.setClientEmail(appointment.getClient().getEmail());
+	                dto.setNutritionistId(appointment.getNutritionist().getId());
+	                dto.setNutritionistName(appointment.getNutritionist().getName());
+	                dto.setEmail(appointment.getNutritionist().getEmail());
+	                return dto;
+	            })
+	            .collect(Collectors.toList());
+	}
+
 }

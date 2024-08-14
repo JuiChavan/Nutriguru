@@ -7,10 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.dto.AppoimnetForTodayDto;
+import com.app.dto.DietPlanDto;
 import com.app.dto.NutritionistDto;
 import com.app.service.NutritionistService;
 
@@ -19,21 +21,27 @@ import com.app.service.NutritionistService;
 public class NutrititionistController {
 
 	@Autowired
-	 private NutritionistService nutritionistService;
-	
+	private NutritionistService nutritionistService;
+
 	@GetMapping("/getAllNutritionist")
-	
-	public ResponseEntity<?> getAllNutritionist(){
-		List<NutritionistDto> nutriList=nutritionistService.getAllNutritionist();
-		
+
+	public ResponseEntity<?> getAllNutritionist() {
+		List<NutritionistDto> nutriList = nutritionistService.getAllNutritionist();
+
 		return ResponseEntity.status(HttpStatus.OK).body(nutriList);
 	}
-	
-	//Get all appoinmnets for today 
+
+	// Get all appoinmnets for today
 	@GetMapping("/getAllAppoinmnetForToday/{nutritionistId}")
-	public ResponseEntity<?> getAllAppoinmnetForToday(@PathVariable Long nutritionistId){
-		List<AppoimnetForTodayDto> appoimnet=nutritionistService.getAllAppoinmnetForToday(nutritionistId);
+	public ResponseEntity<?> getAllAppoinmnetForToday(@PathVariable Long nutritionistId) {
+		List<AppoimnetForTodayDto> appoimnet = nutritionistService.getAllAppoinmnetForToday(nutritionistId);
 		return ResponseEntity.status(HttpStatus.OK).body(appoimnet);
+	}
+
+	@PostMapping("/setDietPlan/{clientId}")
+
+	public ResponseEntity<?> addDietPlan(@PathVariable Long clientId, DietPlanDto dietPlanDto) {
+		return ResponseEntity.status(HttpStatus.OK).body(nutritionistService.addDietPlan(clientId, dietPlanDto));
 	}
 
 }

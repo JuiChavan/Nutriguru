@@ -26,4 +26,5 @@ public class UserRespDTO {
 	private int age;
 	@Embedded
 	private Address address;
+	private String role;
 }
