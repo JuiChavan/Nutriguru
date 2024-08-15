@@ -68,20 +68,20 @@ public class ClientServiceImpl implements ClientService {
 		clientDto.setAge(client.getAge());
 		clientDto.setDob(client.getDob());
 
-
-	    if (client.getBookAppointment() != null) {
-	        clientDto.setBookAppointmentIds(client.getBookAppointment().stream()
-	                                               .map(Appointment::getId)
-	                                               .collect(Collectors.toList()));
-	        }
+		if (client.getBookAppointment() != null) {
+			clientDto.setBookAppointmentIds(
+					client.getBookAppointment().stream().map(Appointment::getId).collect(Collectors.toList()));
+		}
 		if (client.getNutritionist() != null) {
 			clientDto.setNutritionistId(client.getNutritionist().getId());
 		}
 		if (client.getDietPlan() != null) {
-			clientDto.setDietPlan(client.getDietPlan().getDescription());
+			clientDto.setDescription(client.getDietPlan().getDescription());
+			clientDto.setProgram(client.getDietPlan().getProgram().toString());
 		}
 		return clientDto;
 	}
+
 //setClientSlots
 	// Get all time slots
 	@Override

@@ -28,9 +28,7 @@ public class ClientDto {
     private List<Long> bookAppointmentIds; // Changed to List<Long>
 	 
 	private Long nutritionistId;
-    private String dietPlan;
-
-	
-	
-	
+    private String program;
+    private String description;
+ 
 }

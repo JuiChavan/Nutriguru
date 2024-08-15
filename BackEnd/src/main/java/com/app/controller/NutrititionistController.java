@@ -43,6 +43,11 @@ public class NutrititionistController {
 
 	public ResponseEntity<?> addDietPlan(@PathVariable Long clientId, @RequestBody DietPlanDto dietPlanDto) {
 		return ResponseEntity.status(HttpStatus.OK).body(nutritionistService.addDietPlan(clientId, dietPlanDto));
-	}
-
+	} 
+	
+	 @GetMapping("/getNutriIdByEmail/{email}")
+	    public ResponseEntity<?> getNutriIdByEmail(@PathVariable String email) {
+	        Long nutriId = nutritionistService.getIdByEmail(email);
+	        return ResponseEntity.status(HttpStatus.OK).body(nutriId);
+	    }
 }

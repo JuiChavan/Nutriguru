@@ -18,4 +18,5 @@ public interface AppointmentService {
 
 	public Slot checkAvailableSlots(Slot slot, LocalDate date, Nutritionist nutritionist) throws SlotsUnavailable;
 
+
 }

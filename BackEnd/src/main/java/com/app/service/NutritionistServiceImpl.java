@@ -104,5 +104,22 @@ public class NutritionistServiceImpl implements NutritionistService {
 		dietPlanRepository.save(dietPlan);
 		return mapper.map(dietPlan, DietPlanDto.class);
 	}
+	
+	 @Override
+	    public Long getIdByEmail(String email) {
+	        System.out.println("Received email: " + email);
+	        if (nutritionistRepository == null) {
+	            throw new IllegalStateException("NutritionistRepository is not injected!");
+	        }
+	        Optional<Nutritionist> nutritionist = nutritionistRepository.findByEmail(email);
+	            Nutritionist n=nutritionist.get();
+	            Long nId=n.getId();
+				/*
+				 * Long nutriId = (nutritionist != null) ? nutritionist.getId() : null;
+				 * System.out.println("Nutri ID from repository: " + nutriId);
+				 */
+	        return nId;
+	    }
+	
 
 }

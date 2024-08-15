@@ -42,6 +42,7 @@ public class ClientController {
 	
  @GetMapping("/getDietPlan/{clientId}")
  public ResponseEntity<?> getDietPlan(@PathVariable Long clientId){
+	 System.out.println("recived c id "+clientId);
 	 return ResponseEntity.status(HttpStatus.OK).body(clientService.getDietPlan(clientId));
  }
  
