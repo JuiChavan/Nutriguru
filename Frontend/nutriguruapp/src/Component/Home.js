@@ -34,6 +34,9 @@ export default function Home(){
   const getAllNutriAppointment=()=>{
     navigate("/MyAppointment",{ state: { clientEmail:clientEmail } });
   }
+  const aboutUsPage=()=>{
+    navigate('/aboutUs')
+  }
 
   return (
     <div className='div-body'>
@@ -49,7 +52,7 @@ export default function Home(){
             </h1>
           </div >
             <Nav.Link className='nav-link ' onClick={()=>{bmiPage()}}>BMI Calculator</Nav.Link>
-            <Nav.Link className='nav-link '>About Us</Nav.Link>
+            <Nav.Link className='nav-link 'onClick={()=>{aboutUsPage()}}>About Us</Nav.Link>
             <Nav.Link className='nav-link ' onClick={blogPage}>Blogs</Nav.Link>
             <Nav.Link className='nav-link ' onClick={()=>{getAllNutriGuru()}}>Book Appointment</Nav.Link>
             <Nav.Link className='nav-link ' onClick={()=>{getAllNutriAppointment()}}>Show My Appointment</Nav.Link>
