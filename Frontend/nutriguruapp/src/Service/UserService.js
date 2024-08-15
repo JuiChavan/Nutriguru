@@ -11,12 +11,30 @@ class UserService {
     });
   }
 
-  signUp(credentials) {
+ /* signUp(credentials) {
     return axios.post(`${baseUrl}/signUp`, credentials, {
       headers: {
         "Content-Type": "application/json",
       },
       withCredentials: true, // If the backend requires cookies or other credentials
+    });
+  }*/
+  signUpForClient(credentials){
+    return axios.post(`${baseUrl}/signUp`, credentials, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      withCredentials: true // If the backend requires cookies or other credentials
+
+    });
+  }
+  signUpForNutritionist(credentials){
+    return axios.post(`http://localhost:9090/nutritionist/registerNutritionist`, credentials, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      withCredentials: true // If the backend requires cookies or other credentials
+
     });
   }
 

@@ -15,15 +15,22 @@ import com.app.custom_exception.ResourceNotFound;
 import com.app.dto.AppoimnetForTodayDto;
 import com.app.dto.DietPlanDto;
 import com.app.dto.NutritionistDto;
+import com.app.dto.RegisterNtritionistDto;
+import com.app.dto.ResponeNutritionistDto;
 import com.app.entity.Appointment;
+import com.app.entity.Category;
 import com.app.entity.Client;
 import com.app.entity.DietPlan;
 import com.app.entity.DietPlanProgram;
 import com.app.entity.Nutritionist;
+import com.app.entity.Role;
+import com.app.entity.User;
 import com.app.repository.AppointmentRepository;
+import com.app.repository.CategoryRepository;
 import com.app.repository.ClientRepository;
 import com.app.repository.DietPlanRepository;
 import com.app.repository.NutritionistRepository;
+import com.app.repository.UserRepository;
 
 //getAllAppoinmnet
 @Service
@@ -43,6 +50,12 @@ public class NutritionistServiceImpl implements NutritionistService {
 	
 	@Autowired 
 	DietPlanRepository dietPlanRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Autowired
+	private CategoryRepository categoryRepository;
 	@Override
 	public List<NutritionistDto> getAllNutritionist() {
 
@@ -120,6 +133,42 @@ public class NutritionistServiceImpl implements NutritionistService {
 				 */
 	        return nId;
 	    }
+	 
+	 
+	 @Override
+		public ResponeNutritionistDto addNutritionist(RegisterNtritionistDto ntritionistDto) {
+			Role role = Role.valueOf(ntritionistDto.getRole().toUpperCase());
+			Category category = categoryRepository.findByName(ntritionistDto.getCategory())
+				    .orElseThrow(() -> new RuntimeException("Category '" + ntritionistDto.getCategory() + "' not found. Please ensure the category exists."));
+			//it save in user 
+			User user=new User();
+			user.setName(ntritionistDto.getName());
+			user.setEmail(ntritionistDto.getEmail());
+			user.setPassword(ntritionistDto.getPassword());
+			user.setRole(role);
+			
+			User savedUser=userRepository.save(user);
+		        Nutritionist nutritionist = new Nutritionist();
+		        nutritionist.setName(ntritionistDto.getName());
+		        nutritionist.setEmail(ntritionistDto.getEmail());
+		        nutritionist.setPassword(ntritionistDto.getPassword());
+		        nutritionist.setConsulatationFees(ntritionistDto.getConsulatationFees());
+		        nutritionist.setQualification(ntritionistDto.getQualification());
+		        nutritionist.setCategory(category);
+		        
+		        Nutritionist savedNutritionist = nutritionistRepository.save(nutritionist);
+		        
+		        // Map the saved nutritionist to ResponeNutritionistDto
+		        ResponeNutritionistDto response = new ResponeNutritionistDto();
+		        response.setName(savedNutritionist.getName());
+		        response.setEmail(savedNutritionist.getEmail());
+		        response.setConsulatationFees(savedNutritionist.getConsulatationFees());
+		        response.setQualification(savedNutritionist.getQualification());
+		        response.setCategory(category.getName());
+
+		        return response;
+			
+		}
 	
 
 }

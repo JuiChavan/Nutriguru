@@ -1,10 +1,7 @@
 package com.app.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +17,9 @@ public class Address {
 	
 	private String addressLine;
 	private String state;
+	@Column(nullable = true)
 	private int coutryCode;
+	@Column(nullable = true)
 	private int zipCode;
 	
 }

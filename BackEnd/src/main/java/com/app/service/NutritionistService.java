@@ -5,7 +5,8 @@ import java.util.List;
 import com.app.dto.AppoimnetForTodayDto;
 import com.app.dto.DietPlanDto;
 import com.app.dto.NutritionistDto;
-import com.app.entity.Nutritionist;
+import com.app.dto.RegisterNtritionistDto;
+import com.app.dto.ResponeNutritionistDto;
 
 public interface NutritionistService {
 
@@ -16,5 +17,6 @@ public interface NutritionistService {
 	DietPlanDto addDietPlan(Long clientId, DietPlanDto dietPlanDto);
 
 	Long getIdByEmail(String email);
+	ResponeNutritionistDto addNutritionist(RegisterNtritionistDto ntritionistDto);
 
 }

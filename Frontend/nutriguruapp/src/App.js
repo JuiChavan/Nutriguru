@@ -10,7 +10,9 @@ import Blogs from './Component/Blogs'
 import AllAppointment from './Component/AllAppointment'
 import AddDiet from './Component/AddDiet'
 import MyAppointment from './Component/MyAppointment'
-
+import SignUpForClient from './Component/SignUpForClient'
+import SignUpForNutritionist from './Component/SignUpForNutritionist'
+import About from './Component/AboutUs';
 function App() {
   return (
     <div className="App">
@@ -26,8 +28,9 @@ function App() {
         <Route path='/AllAppointment' element={<AllAppointment/>}/>
         <Route path='/AddDiet' element={<AddDiet/>}/>
         <Route path='/MyAppointment' element={<MyAppointment/>}/>
-
-        
+        <Route path='/signUpForClient' element={<SignUpForClient/>}></Route>
+        <Route path='/signUpForNutritionist' element={<SignUpForNutritionist/>}/>
+        <Route path='/aboutUs'element={<About/>}/>
       </Routes>
     </div>
   );

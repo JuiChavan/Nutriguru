@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.dto.AppoimnetForTodayDto;
 import com.app.dto.DietPlanDto;
 import com.app.dto.NutritionistDto;
+import com.app.dto.RegisterNtritionistDto;
 import com.app.service.NutritionistService;
 
 @RestController
@@ -50,4 +51,10 @@ public class NutrititionistController {
 	        Long nutriId = nutritionistService.getIdByEmail(email);
 	        return ResponseEntity.status(HttpStatus.OK).body(nutriId);
 	    }
+	 @PostMapping("/registerNutritionist")
+		public ResponseEntity<?> addNutritionist(@RequestBody RegisterNtritionistDto ntritionistDto){
+			
+			
+			return ResponseEntity.ok(nutritionistService.addNutritionist(ntritionistDto));
+		}
 }
