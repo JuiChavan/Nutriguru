@@ -2,6 +2,12 @@
  
   .blog-container {
     display: grid;
+    background-image: url("../Images/1\ \(2\).jfif");
+    height: 100%;
+    width: 100%;
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* 2 columns layout */
     gap: 20px; /* Spacing between blog posts */
     padding: 20px;
@@ -12,10 +18,10 @@
   }
   
   .blog-post {
-    border: 1px solid #ddd;
+    border: 1px solid #200909;
     padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgb(60, 19, 19);
     background-color: #fff;
     position: relative;
     padding-top: 60px; /* Adjust this padding based on the size of the author info */

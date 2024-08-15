@@ -19,14 +19,16 @@ export default function SignIn() {
 
         if (resp.data) {
           const user = resp.data;
-          const nutriId=resp.data.id;
+          const nutriEmail=resp.data.email;
           setInvalid("");
           console.log("--user--",user);
+          const clientEmail=resp.data.email;
+
           // Navigate based on role
           if (user.role === "NUTRITIONIST") {
-            navigate('/AllAppointment', { state: { user: user ,nutriId:nutriId} });
+            navigate('/AllAppointment', { state: { user: user ,nutriEmail:nutriEmail} });
           } else if (user.role === "CLIENT") {
-            navigate('/nutritionists', { state: { email:resp.data.email } });
+            navigate('/home', { state: { clientEmail:resp.data.email, } });
           } else {
             // Handle other roles or unknown roles
             navigate('/home'); // Default or error page

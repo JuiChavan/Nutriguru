@@ -5,20 +5,18 @@ class UserService {
   signIn(credentials) {
     return axios.post(`${baseUrl}/signIn`, credentials, {
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      withCredentials: true // If the backend requires cookies or other credentials
-
+      withCredentials: true, // If the backend requires cookies or other credentials
     });
   }
 
-  signUp(credentials){
+  signUp(credentials) {
     return axios.post(`${baseUrl}/signUp`, credentials, {
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      withCredentials: true // If the backend requires cookies or other credentials
-
+      withCredentials: true, // If the backend requires cookies or other credentials
     });
   }
 
@@ -26,13 +24,21 @@ class UserService {
     return axios.get(`${baseUrl}/findByEmail`, {
       params: { email },
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      withCredentials: true ,// If the backend requires cookies or other credentials
-      maxRedirects: 0 // Prevent automatic redirection handling by axios
-
+      withCredentials: true, // If the backend requires cookies or other credentials
+      maxRedirects: 0, // Prevent automatic redirection handling by axios
     });
   }
+
+  getDietPlan = (clientId) => {
+    return axios.get(`http://localhost:9090/client/getDietPlan/${clientId}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      withCredentials: true,
+    });
+  };
 }
 
 export default new UserService();

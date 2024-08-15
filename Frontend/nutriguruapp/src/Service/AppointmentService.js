@@ -11,8 +11,8 @@ class AppointmentService {
     });
   };
 
-  getAll = (id) => {
-    return axios.get(`${baseUrl}/getAll/${id}`, {
+  getAll = (nid) => {
+    return axios.get(`${baseUrl}/getAll/${nid}`, {
       headers: {
         "Content-Type": "application/json",
       },

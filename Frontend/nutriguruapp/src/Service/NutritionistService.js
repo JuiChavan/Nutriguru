@@ -22,6 +22,15 @@ class NutritionistService {
       withCredentials: true, // If your backend requires credentials
     });
   };
+
+  getNutriIdByEmail = (email) => {
+    return axios.get(`${baseUrl}getNutriIdByEmail/${email}`,{
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true, // If your backend requires credentials
+    });
+  };
 }
 
 export default new NutritionistService();

@@ -1,8 +1,8 @@
 // BookNutrionistAppointment.js
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import AppointmentService from '../Service/AppointmentService';
-import '../Css/BookNutrionistAppointment.css'; // Import the CSS file
+import AppointmentService from "../Service/AppointmentService";
+import "../Css/BookNutrionistAppointment.css"; // Import the CSS file
 
 export default function BookNutrionistAppointment() {
   const location = useLocation();
@@ -16,7 +16,7 @@ export default function BookNutrionistAppointment() {
     userId,
     nutritionistId,
     date,
-    timeSlot
+    timeSlot,
   };
 
   useEffect(() => {
@@ -38,46 +38,77 @@ export default function BookNutrionistAppointment() {
       .then((resp) => {
         console.log("done ", resp.data);
         alert("Appointment booked");
-      }).catch((err) => {
+      })
+      .catch((err) => {
         console.log("err ", err);
         alert("Client can book only one appointment per day");
       });
   };
 
   return (
-    <div className="bacontainer">
-      <h1>Book Appointment:Nutritionist Information</h1>
-      <h2></h2>
-      <br></br>
-      {nutritionist && (
-        <div>
-          <p><b>{nutritionist.name}</b></p>
-          <p>Category Name: {nutritionist.categoryName}</p>
-          <p>Consultation Fees: &#8377;{nutritionist.consulatationFees}</p>
-          <p>Email: {nutritionist.email}</p>
-          <p>Qualification: {nutritionist.qualification}</p>
-          <p>Rating: {nutritionist.rating}</p>
-          <label htmlFor="book">Book Date</label>
-          <br></br>
-          <input type="date" value={date} name="date" onChange={(e) => setDate(e.target.value)} />
-          <br></br>
-          <label htmlFor="timeSlot">Time Slot</label>
-          <br></br>
-          <label>
-            <input type="radio" name="timeSlot" id="MORNING" value="MORNING" onChange={(e) => setTimeSlot(e.target.value)} /> Morning
-          </label>
-          <label>
-            <input type="radio" name="timeSlot" id="AFTERNOON" value="AFTERNOON" onChange={(e) => setTimeSlot(e.target.value)} /> Afternoon
-          </label>
-          <label>
-            <input type="radio" name="timeSlot" id="EVENING" value="EVENING" onChange={(e) => setTimeSlot(e.target.value)} /> Evening
-          </label>
-          <br></br>
-          <button id="book" onClick={() => bookAppointment()}>
-            Book
-          </button>
-        </div>
-      )}
+    <div className="bn">
+      <div className="bncontainer">
+        <h1>Book Appointment</h1>
+        <h1>Nutritionist Information</h1>
+        {nutritionist && (
+          <div>
+            <p>
+              <b>{nutritionist.name}</b>
+            </p>
+            <p>{nutritionist.categoryName}</p>
+            <p>Fees: &#8377;{nutritionist.consulatationFees}</p>
+            <p>{nutritionist.email}</p>
+            <p>{nutritionist.qualification}</p>
+            {nutritionist.rating != 0 ? (
+              <p>Rating: {nutritionist.rating}</p>
+            ) : (
+              <p></p>
+            )}
+            <label htmlFor="book">Book Date</label>
+            <input
+              type="date"
+              value={date}
+              name="date"
+              onChange={(e) => setDate(e.target.value)}
+            />
+            <br></br>
+            <label className="timeslot" htmlFor="timeSlot">Time Slot</label>
+            <label>
+              <input
+                type="radio"
+                name="timeSlot"
+                id="MORNING"
+                value="MORNING"
+                onChange={(e) => setTimeSlot(e.target.value)}
+              />{" "}
+              Morning
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="timeSlot"
+                id="AFTERNOON"
+                value="AFTERNOON"
+                onChange={(e) => setTimeSlot(e.target.value)}
+              />{" "}
+              Afternoon
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="timeSlot"
+                id="EVENING"
+                value="EVENING"
+                onChange={(e) => setTimeSlot(e.target.value)}
+              />{" "}
+              Evening
+            </label>
+            <button id="book" onClick={() => bookAppointment()}>
+              Book
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

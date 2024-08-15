@@ -1,10 +1,28 @@
+.nutri-{
+  background-image: url("../Images/Background.jfif");
+  margin-top: -40px;
+  background-size: cover; /* Ensures the image covers the whole container */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the image fixed during scrolling */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  height: 890px; /* Sets the height of the container to 100% of the viewport height */
+  width: 100%; 
+}
 .nutritionists-container {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #85a29a;
+  background-image: url("../Images/back.jfif");
+  background-size: cover; /* Ensures the image covers the whole container */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed; /* Keeps the image fixed during scrolling */
+  background-repeat: no-repeat;
+  /* border: 1px solid #ddd; */
+  border-radius: 12px;
+  box-shadow: 0 0 50px rgb(0, 0, 0);
+  box-shadow: 0 0 90px rgb(27, 1, 1);
+  
 }
 
 .nutritionists-list {
@@ -23,9 +41,10 @@
   margin: 15px;
   padding: 20px;
   width: 500px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* background-color: #ffffff; */
+  /* border: 1px solid #000000; */
+  border-radius: 12px;
+  box-shadow: 0 0 50px rgb(0, 0, 0);
 }
 .nutritionist-details b,p {
   flex: 1;
@@ -62,12 +81,17 @@
 /* Card-details */
 .nutritionist-card b {
   display: block;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   font-size: 25px;
 }
 
 .nutritionist-card p {
   font-size: 20px;
-  margin-bottom: 10px; 
+  /* margin-bottom: 10px;  */
 
+}
+
+.book-nutri-btn{
+  border-radius: 10px;
+  background-color: #77a7af;
 }

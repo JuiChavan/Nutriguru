@@ -9,6 +9,7 @@ import BookNutrionistAppointment from './Component/BookNutrionistAppointment';
 import Blogs from './Component/Blogs'
 import AllAppointment from './Component/AllAppointment'
 import AddDiet from './Component/AddDiet'
+import MyAppointment from './Component/MyAppointment'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/blogs' element={<Blogs/>}/>
         <Route path='/AllAppointment' element={<AllAppointment/>}/>
         <Route path='/AddDiet' element={<AddDiet/>}/>
+        <Route path='/MyAppointment' element={<MyAppointment/>}/>
 
         
       </Routes>

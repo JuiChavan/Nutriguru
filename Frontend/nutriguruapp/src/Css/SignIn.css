@@ -2,7 +2,7 @@
 .sign-in {
   display: flex;
   flex-direction: column; /* Stack children vertically */
-  min-height: 510px; /* Full viewport height */
+  min-height: 425px; /* Full viewport height */
 }
 
 .sign-in-form-container {
@@ -27,8 +27,8 @@
   opacity: 0.8;
   background-color: white;
   text-align: left;
-  margin-left: 650px;
-  margin-top:70px
+  margin-left: 510px;
+  margin-top:40px
 }
 
 .signin-tagline {
@@ -77,11 +77,13 @@
 
 .sign-in-form-container {
   width: 100%;
-  height: 100%;
+  height: 520px;
+  margin-top: -40px;
   background-image: url('../Images//signIn.jpg');
   background-size: cover;
   background-position: center;
-  margin-bottom: -25px;
+  /* margin-bottom: -25px; */
+
 }
 
 .signIn-page-footer {

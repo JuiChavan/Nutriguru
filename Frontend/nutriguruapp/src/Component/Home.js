@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import  '../Css/Home.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Home(){
 
   const navigate = useNavigate(); // Hook for programmatic navigation
+  const location = useLocation();
+  const clientEmail = location.state?.clientEmail;
+  // const nutriEmail=location.state?.user.email // Corrected access
+  console.log("logged is user ", clientEmail);
+
+
+  useEffect(()=>{
+    console.log("client email-- ",clientEmail)
+  },[])
 
   const bmiPage = () => {
     navigate('/knowYourBody'); // Navigate to the BMI Calculator page
@@ -17,10 +26,15 @@ export default function Home(){
   const blogPage=()=>{
     navigate('/blogs')   //Navigate to the Blog page
   }
-
-  const getAllNutriGuru=()=>{
-    navigate('/nutritionists');
+  
+  const getAllNutriGuru = () => {
+    navigate('/nutritionists', { state: { clientEmail } });
   }
+  
+  const getAllNutriAppointment=()=>{
+    navigate("/MyAppointment",{ state: { clientEmail:clientEmail } });
+  }
+
   return (
     <div className='div-body'>
 
@@ -38,7 +52,8 @@ export default function Home(){
             <Nav.Link className='nav-link '>About Us</Nav.Link>
             <Nav.Link className='nav-link ' onClick={blogPage}>Blogs</Nav.Link>
             <Nav.Link className='nav-link ' onClick={()=>{getAllNutriGuru()}}>Book Appointment</Nav.Link>
-            
+            <Nav.Link className='nav-link ' onClick={()=>{getAllNutriAppointment()}}>Show My Appointment</Nav.Link>
+
           </Nav>
         </Navbar.Collapse>
       </Navbar>
