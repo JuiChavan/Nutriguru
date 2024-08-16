@@ -2,8 +2,7 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .div-body-c{
-    /* background-image: url("https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg"); */
-    background-image: url(" https://i.pinimg.com/564x/31/5d/da/315dda3926aa145eba83a2c4febdf09e.jpg");
+    background-image: url("../Images/HomeBackGround.jpg");
     background-size: cover; /* Ensures the image covers the whole container */
     background-position: center; /* Centers the image */
     background-attachment: fixed; /* Keeps the image fixed during scrolling */
@@ -60,9 +59,7 @@
     color: #011112; /* Replace with your desired color for brand */
   }
   
-  .custom-navbar .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,..."); /* Optional: Customize the toggler icon if needed */
-  }
+ 
   
   .nav-link-c {
     /* margin-top: 20px; */

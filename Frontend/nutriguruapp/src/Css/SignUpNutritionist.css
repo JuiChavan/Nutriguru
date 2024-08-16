@@ -13,7 +13,7 @@
 /* Styling for the background image */
 .sign-up-n::before {
   content: ""; /* Needed for the pseudo-element to work */
-  background-image: url("../Images/1\ \(2\).jfif");
+  background-image: url("../Images/Common.jfif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

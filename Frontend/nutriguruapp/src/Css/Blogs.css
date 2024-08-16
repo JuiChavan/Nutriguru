@@ -2,7 +2,7 @@
  
   .blog-container {
     display: grid;
-    background-image: url("../Images/1\ \(2\).jfif");
+    background-image: url("../Images/Common.jfif");
     height: 100%;
     width: 100%;
     background-size: cover; /* Ensure the background image covers the entire container */
@@ -49,7 +49,7 @@
   
   .rating {
     font-size: 16px;
-    color: #FFD700;
+    color: #3f3706;
   }
   
   .blog-image {
