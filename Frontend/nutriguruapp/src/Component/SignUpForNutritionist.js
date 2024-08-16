@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Css/SignUp.css";
+import "../Css/SignUpNutritionist.css";
 import UserService from "../Service/UserService";
 import { useNavigate } from "react-router-dom";
 
@@ -63,29 +63,29 @@ export default function SignUp() {
   };
 
   return (
-    <div className="sign-up">
-      <div className="sign-up-form-container">
+    <div className="sign-up-n">
+      <div className="sign-up-form-container-n">
       
-        <form className="signUp-form">
-        <div className="s-up">
+        <form className="signUp-form-n">
+        <div className="s-up-n">
         <p>Sign Up</p>
       </div>
-          <label htmlFor="name" className="signUp-label">
+          <label htmlFor="name" className="signUp-label-n">
             Full Name
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="name"
             type="text"
             value={name}
             onChange={(e) => setname(e.target.value)}
             required
           />
-          <label htmlFor="email" className="signUp-label">
+          <label htmlFor="email" className="signUp-label-n">
             Email
           </label>
           <input
-            className="signIn-input"
+             className="signIn-input-email"
             id="email"
             type="email"
             value={email}
@@ -94,44 +94,44 @@ export default function SignUp() {
           />
         
          
-          <label htmlFor="password" className="signUp-label">
+          <label htmlFor="password" className="signUp-label-n">
             Password
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-         <label htmlFor="fee" className="signUp-label">
+         <label htmlFor="fee" className="signUp-label-n">
             Consulting Fee
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="fee"
             type="number"
             value={fee}
             onChange={(e) => setFee(e.target.value)}
             required
           />
-          <label htmlFor="qualification" className="signUp-label">
+          <label htmlFor="qualification" className="signUp-label-n">
           Qualification
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="qualification"
             type="text"
             value={qualification}
             onChange={(e) => setQualification(e.target.value)}
             required
           />
-          <label htmlFor="category" className="signUp-label">
+          <label htmlFor="category" className="signUp-label-n">
           Category Name
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="category"
             type="text"
             value={category}
@@ -140,13 +140,13 @@ export default function SignUp() {
           />
   
 
-          <label htmlFor="role" className="signUp-label">
+          <label htmlFor="role" className="signUp-label-n">
             Role
           </label>
-          <div id="role" className="signUp-radio-role">
+          <div id="role" className="signUp-radio-role-n">
             <label>
               <input
-                className="opt"
+                className="opt-n"
                 type="radio"
                 name="role"
                 value="CLIENT"
@@ -158,7 +158,7 @@ export default function SignUp() {
             </label>
             <label>
               <input
-                className="opt"
+                className="opt-n"
                 type="radio"
                 name="role"
                 value="NUTRITIONIST"
@@ -170,7 +170,7 @@ export default function SignUp() {
             </label>
           </div>
           <button
-            className="signUp-btnSubmit"
+            className="signUp-btnSubmit-n"
             type="button"
             onClick={() =>
               submit(name, email, password, fee, qualification, category)

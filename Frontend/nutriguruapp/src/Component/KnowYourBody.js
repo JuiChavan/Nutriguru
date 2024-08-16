@@ -48,9 +48,9 @@ export default function KnowYourBody() {
   };
 
   return (
-    <div className="bmi-calculator">
+    <div className="bmi-calculator-c">
       <h2>Get deeper insights on your health</h2>
-      <form className="bmi-form" onSubmit={(e) => calculateBmi(e)}>
+      <form className="bmi-form-c" onSubmit={(e) => calculateBmi(e)}>
         <label form="weight">Weight</label>
         <input
           id="weight"
@@ -58,7 +58,7 @@ export default function KnowYourBody() {
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
           placeholder="Kg"
-          className="ip"
+          className="ip-c"
           required
         />
         <br />
@@ -84,7 +84,7 @@ export default function KnowYourBody() {
             </br>
             <br>
             </br>
-            <Link to={"/home"} className="link">
+            <Link to={"/home"} className="link-c">
               Home
             </Link>
           </div>
@@ -92,16 +92,16 @@ export default function KnowYourBody() {
         <br></br>
         {flag && (
           <div>
-            <div className="result">
+            <div className="result-c">
               <b>Your BMI is {bmi}</b>
               <b>{feedback}</b>
             </div>
-            <div className="link-container">
-              <Link to={"/home"} className="link">
+            <div className="link-container-c">
+              <Link to={"/home"} className="link-c">
                 Book Your Bite
               </Link>
               <br></br>
-              <Link to={"/home"} className="link">
+              <Link to={"/home"} className="link-c">
                 Home
               </Link>
             </div>

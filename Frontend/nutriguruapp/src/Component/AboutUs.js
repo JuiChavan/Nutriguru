@@ -1,18 +1,31 @@
 import React from 'react';
 import '../Css/AboutUs.css';
+import { useLocation, useNavigate } from "react-router-dom";
+
 
 const About = () => {
+    const location = useLocation();
+
+    const clientEmail = location.state?.clientEmail;
+
     return (
-        <div className="about-background">
-            <div className="about-container">
-                <h3 className="py-3">About Us</h3>
-                <p className="about-text">
-                    MeetYourDoctor is a platform for booking medical consultations with specialist doctors in your city online. Patients can book an appointment by selecting any of the time slots given by the doctor.
+        <div className="about-background-c">
+            <div className="about-container-c">
+                <h3 className="py-3-c">About Us</h3>
+                <p className="about-text-c">
+                    NutriGuru is a platform for booking medical 
+                    consultations with specialist nutritionists online. Client can book an appointment 
+                    by selecting any of the time slots given by the nutritionist. NutriGuru:Book Your 
+                    Bite empowers users to take control of their health by 
+                    connecting them with experts who can offer personalized plans.
                 </p>
-                <p className="about-text-muted">Regards, from creators:
-                    <ul className="about-ul">
-                        <li className="about-li">Jui Chavan</li>
-                        <li className="about-li">Vaishnvai Sawant</li>
+                <p className="about-text-muted-c">Regards, from creators:
+                    <ul className="about-ul-c">
+                        <li className="about-li-c"><b>Jui Chavan</b></li>
+                        <h6>abc@gmail.com</h6>
+                        <li className="about-li-c"><b>Vaishnvai Sawant</b></li>
+                        <h6>xyz@gmail.com</h6>
+
                     </ul>
                 </p>
             </div>

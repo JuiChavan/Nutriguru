@@ -1,4 +1,4 @@
-.about-background {
+.about-background-c {
     background-image: url('../Images/AboutUs11.jpg'); /* Replace with your image path */
     background-size: cover;
     background-position: center;
@@ -13,10 +13,10 @@
     overflow: hidden;
 }
 
-.about-container {
+.about-container-c {
     /* background: rgba(255, 255, 255, 0.8);  */
-    padding: 2rem;
-    /* border-radius: 8px; */
+    padding: 12px;
+    border-radius: 12px;
     box-shadow:  0 0 80px rgba(0, 0, 0, 0.968);
     max-width: 800px; /* Limit the width of the content */
     width: 90%;
@@ -25,34 +25,35 @@
     margin-left: 5px;
     margin-right: 350px;
     transform: translateY(-40px); /* Move up by 20px */
-    margin-top: 0; /* Ensure there's no conflicting margin */
+    margin-top: 85px;
+    margin-left: 12px;
 }
 
-.py-3 {
+.py-3-c {
     font-size: 2rem;
     margin-bottom: 1rem;
     background-color: transparent;
 }
 
-.about-text {
+.about-text-c {
     font-size: 1.2rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
 }
 
-.about-text-muted {
+.about-text-muted-c {
     font-size: 1rem;
     line-height: 1.5;
     margin-top: 1rem;
 }
 
-.about-ul {
+.about-ul-c {
     list-style-type: disc;
     padding-left: 20px;
     margin: 0;
 }
 
-.about-li {
+.about-li-c {
     font-size: 1rem;
     margin: 0.5rem 0;
 }
@@ -60,31 +61,31 @@
 
 
 
-.py-3 {
+.py-3-c {
     font-size: 2rem;
     margin-bottom: 1rem;
     background-color: transparent;
 }
 
-.about-text {
+.about-text-c {
     font-size: 1.2rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
 }
 
-.about-text-muted {
+.about-text-muted-c {
     font-size: 1rem;
     line-height: 1.5;
     margin-top: 1rem;
 }
 
-.about-ul {
+.about-ul-c {
     list-style-type: disc;
     padding-left: 20px;
     margin: 0;
 }
 
-.about-li {
+.about-li-c {
     font-size: 1rem;
     margin: 0.5rem 0;
 }

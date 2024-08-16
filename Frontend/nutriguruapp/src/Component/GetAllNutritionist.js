@@ -78,19 +78,19 @@ export default function GetAllNutritionist() {
   };
 
   return (
-    <div className="nutri-">
-      <div className="nutritionists-container">
+    <div className="nutri-c">
+      <div className="nutritionists-container-c">
         <h1>Our team of nutrition professionals</h1>
-        <div className="nutritionists-list">
+        <div className="nutritionists-list-c">
           {nutritionists.map((nutritionist) => (
-            <div key={nutritionist.id} className="nutritionist-card">
-              <div className="profile-pic">
+            <div key={nutritionist.id} className="nutritionist-card-c">
+              <div className="profile-pic-c">
                 <img
                   src="https://i.pinimg.com/564x/8c/c9/68/8cc9685d03a0233b437a37f66af87b7b.jpg"
                   alt="Default profile"
                 />
               </div>
-              <div className="nutritionist-details">
+              <div className="nutritionist-details-c">
                 <b>{nutritionist.name}</b>
                 <p>Category Name: {nutritionist.categoryName}</p>
                 <p>
@@ -98,9 +98,14 @@ export default function GetAllNutritionist() {
                 </p>
                 <p>Email: {nutritionist.email}</p>
                 <p>Qualification: {nutritionist.qualification}</p>
-                <p>Rating: {nutritionist.rating}</p>
-                <div className="book-nutritionist">
-                  <button className="book-nutri-btn"
+                {nutritionist.rating != 0 ? (
+              <p>Rating: {nutritionist.rating}</p>
+            ) : (
+              <p></p>
+            )}
+               
+                <div className="book-nutritionist-c">
+                  <button className="book-nutri-btn-c"
                     onClick={() => {
                       bookNutrionistAppointment(clientEmail, nutritionist);
                     }}

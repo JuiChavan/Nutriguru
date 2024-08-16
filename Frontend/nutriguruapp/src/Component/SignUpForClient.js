@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Css/SignUp.css";
+import "../Css/SignUpForClient.css"
 import UserService from "../Service/UserService";
 import { useNavigate } from "react-router-dom";
 
@@ -11,10 +11,10 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [contact, setContact] = useState("");
   const [role, setRole] = useState("");
-  const [state,setState]=useState("");
-  const [coutryCode,setCoutryCode]=useState("");
-  const [zipCode,setZipCode]=useState("");
-  const [addressLine,setAddressLine]=useState("");
+  const [state, setState] = useState("");
+  const [coutryCode, setCoutryCode] = useState("");
+  const [zipCode, setZipCode] = useState("");
+  const [addressLine, setAddressLine] = useState("");
   const [address, setAddress] = useState({
     addressLine: "",
     state: "",
@@ -30,12 +30,11 @@ export default function SignUp() {
   const navigate = useNavigate();
 
   const updateAddress = (key, value) => {
-    setAddress(prevAddress => ({
+    setAddress((prevAddress) => ({
       ...prevAddress,
-      [key]: value
+      [key]: value,
     }));
   };
-  
 
   const submit = () => {
     if (!name || !email || !password || !contact || !age || !dob || !role) {
@@ -80,73 +79,73 @@ export default function SignUp() {
   };
 
   return (
-    <div className="sign-up">
-      <div className="sign-up-form-container">
-      
-        <form className="signUp-form">
-        <div className="s-up">
-        <p>Sign Up</p>
-      </div>
-          <label htmlFor="name" className="signUp-label">
+    <div className="sign-up-n">
+      <div className="sign-up-form-container-n">
+        <form className="signUp-form-n">
+          <div className="s-up-n">
+            <p>Sign Up</p>
+          </div>
+          <label htmlFor="name" className="signUp-label-n">
             Full Name
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="name"
             type="text"
             value={name}
             onChange={(e) => setname(e.target.value)}
             required
           />
-          <label htmlFor="email" className="signUp-label">
+          <label htmlFor="email" className="signUp-label-n">
             Email
           </label>
           <input
-            className="signIn-input"
+            className="signIn-input-email"
             id="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <label htmlFor="age" className="signUp-label">
+
+          <label htmlFor="age" className="signUp-label-n">
             Age
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="age"
             type="number"
             value={age}
             onChange={(e) => setAge(e.target.value)}
             required
           />
-          <label htmlFor="dob" className="signUp-label">
+          <label htmlFor="dob" className="signUp-label-n">
             DOB
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="dob"
             type="date"
             value={dob}
             onChange={(e) => setDob(e.target.value)}
             required
           />
-          <label htmlFor="password" className="signUp-label">
+          <label htmlFor="password" className="signUp-label-n">
             Password
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <label htmlFor="contact" className="signUp-label">
+          <label htmlFor="contact" className="signUp-label-n">
             Contact
           </label>
           <input
-            className="signUp-input"
+            className="signUp-input-n"
             id="contact"
             type="tel"
             value={contact}
@@ -155,58 +154,58 @@ export default function SignUp() {
             onChange={(e) => setContact(e.target.value)}
             required
           />
-         <label htmlFor="addressLine" className="signUp-label">
-  Address
-</label>
-<input
-  className="signUp-input"
-  id="addressLine"
-  type="text"
-  value={address.addressLine}
-  onChange={(e) => updateAddress('addressLine', e.target.value)}
-  required
-/>
-<label htmlFor="state" className="signUp-label">
-  State
-</label>
-<input
-  className="signUp-input"
-  id="state"
-  type="text"
-  value={address.state}
-  onChange={(e) => updateAddress('state', e.target.value)}
-  required
-/>
-<label htmlFor="countryCode" className="signUp-label">
-  Country Code
-</label>
-<input
-  className="signUp-input"
-  id="countryCode"
-  type="number"
-  value={address.coutryCode}
-  onChange={(e) => updateAddress('coutryCode', e.target.value)}
-  required
-/>
-<label htmlFor="zipCode" className="signUp-label">
-Zip Code
-</label>
-<input
-  className="signUp-input"
-  id="zipCode"
-  type="number"
-  value={address.zipCode}
-  onChange={(e) => updateAddress('zipCode', e.target.value)}
-  required
-/>
+          <label htmlFor="addressLine" className="signUp-label-n">
+            Address
+          </label>
+          <input
+            className="signUp-input-n"
+            id="addressLine"
+            type="text"
+            value={address.addressLine}
+            onChange={(e) => updateAddress("addressLine", e.target.value)}
+            required
+          />
+          <label htmlFor="state" className="signUp-label-n">
+            State
+          </label>
+          <input
+            className="signUp-input-n"
+            id="state"
+            type="text"
+            value={address.state}
+            onChange={(e) => updateAddress("state", e.target.value)}
+            required
+          />
+          <label htmlFor="countryCode" className="signUp-label-n">
+            Country Code
+          </label>
+          <input
+            className="signUp-input-n"
+            id="countryCode"
+            type="number"
+            value={address.coutryCode}
+            onChange={(e) => updateAddress("coutryCode", e.target.value)}
+            required
+          />
+          <label htmlFor="zipCode" className="signUp-label-n">
+            Zip Code
+          </label>
+          <input
+            className="signUp-input-n"
+            id="zipCode"
+            type="number"
+            value={address.zipCode}
+            onChange={(e) => updateAddress("zipCode", e.target.value)}
+            required
+          />
 
-          <label htmlFor="role" className="signUp-label">
+          <label htmlFor="role" className="signUp-label-n">
             Role
           </label>
-          <div id="role" className="signUp-radio-role">
+          <div id="role" className="signUp-radio-role-n">
             <label>
               <input
-                className="opt"
+                className="opt-n"
                 type="radio"
                 name="role"
                 value="CLIENT"
@@ -218,7 +217,7 @@ Zip Code
             </label>
             <label>
               <input
-                className="opt"
+                className="opt-n"
                 type="radio"
                 name="role"
                 value="NUTRITIONIST"
@@ -230,7 +229,7 @@ Zip Code
             </label>
           </div>
           <button
-            className="signUp-btnSubmit"
+            className="signUp-btnSubmit-n"
             type="button"
             onClick={() =>
               submit(name, email, password, contact, age, dob, address)

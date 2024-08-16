@@ -1,7 +1,7 @@
 *{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.div-body{
+.div-body-c{
     /* background-image: url("https://images.pexels.com/photos/304664/pexels-photo-304664.jpeg"); */
     background-image: url(" https://i.pinimg.com/564x/31/5d/da/315dda3926aa145eba83a2c4febdf09e.jpg");
     background-size: cover; /* Ensures the image covers the whole container */
@@ -13,24 +13,24 @@
 }
 
 /* Title */
-.title-header {
+.title-header-c {
     text-align: left; 
     padding-top: 15px;
     margin-left: 5px;
   }
 
-  .title-header h1{
+  .title-header-c h1{
     font-size: 25px;
     font-weight: bold;
     color: #00070b; 
     margin-top: -8px;
   }
-.sub{
+.sub-c{
     font-size: 12px;
 }
 
 /* Navbar */
-.custom-navbar {
+.custom-navbar-c {
    background-color: #f9d9d579; /* Replace with your desired background color
     margin-top: 5px; /* Add margin to create some space below the welcome header */
     color:black; 
@@ -45,7 +45,7 @@
 
 }
   
-  .custom-navbar .navbar-nav .nav-link {
+  .custom-navbar-c .navbar-nav .nav-link-c {
     padding: 10px;
     padding-left : 10px;
     padding-top: 15px;
@@ -64,12 +64,12 @@
     background-image: url("data:image/svg+xml,..."); /* Optional: Customize the toggler icon if needed */
   }
   
-  .nav-link {
+  .nav-link-c {
     /* margin-top: 20px; */
     margin-left: 30px; /* Adjust spacing between nav items if needed */
 }
    
-  .home-page-footer {
+  .home-page-footer-c {
     text-align: center;
     width: 100%;
     /* border: 1px solid; */
@@ -81,7 +81,7 @@
     box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
   }
   
-  .home-page-footer p {
+  .home-page-footer-c p {
     text-align: center;
     font-weight: 42px;
     /* font-weight: bold; */
@@ -90,7 +90,7 @@
     margin: 0; /* Remove default margin */
   }
   
-  .byb {
+  .byb-c {
     text-align: right;
     background-image: url("../Images/Recepie.jpg");
     background-size: cover; /* Ensures the image covers the whole container */
@@ -104,7 +104,7 @@
     align-items: center; /* Center the text vertically */
   }
   
-  .byb h3 {
+  .byb-c h3 {
     background-color: rgb(253, 225, 225);
     width: 100%;
     border: 2px solid rgb(238, 228, 228);
@@ -117,14 +117,14 @@
     color: black; /* Change the text color to black for better visibility */
     margin: 1 auto; /* Add this to center the text horizontally */
   }
-  .nutri-info {
+  .nutri-info-c {
     margin-top: -15px;
     display: grid;
     grid-template-columns: 1fr 1fr;  /*Grid having 2 fraction of equal space*/ 
     height: 400px; /* adjust the height to your needs */
   }
   
-  .nutri-info p {
+  .nutri-info-c p {
     grid-column: 1;/*1st col*/
     text-align: left;
     color: black;
@@ -144,7 +144,7 @@
     box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
   }
   
-  .nutri-info::after {
+  .nutri-info-c::after {
     grid-column: 2;/*2nd col*/
     background-image: url('../Images/Bowl.jpg');
     background-size: cover;
@@ -154,7 +154,7 @@
     width: 100%;
     content: "";
   }
-  .tagline {
+  .tagline-c {
     margin-top: -78px;
     width: 100%;
     padding-top: 180px;
@@ -173,7 +173,7 @@
     color: black; /* Text color */
   }
   
-  .tagline p {
+  .tagline-c p {
     font-size: 30px; /* Adjust font size as needed */
     background-color: #e38918;
     margin: 0 0 20px 0; /* Remove default paragraph margin, add bottom margin */
@@ -185,10 +185,10 @@
     font-weight: bold;
     text-shadow: 0 0 10px rgba(9, 111, 0, 0.5); /* Add text shadow for better readability */
   }
-  .tagline-book p{
+  .tagline-book-c p{
     margin-top: -150px;
   }
-  .join-now-btn {
+  .join-now-btn-c {
     background-color: #e38918;
     color: white;
     border: none;
@@ -199,7 +199,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
   
-  .byb-consult-us-btn{
+  .byb-consult-us-btn-c{
     margin: 10px;
     border: 40px;
     color: black;
@@ -211,11 +211,11 @@
     box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
     font-weight: bold;
   }
-  .byb-consult-us-btn:hover{
+  .byb-consult-us-btn-c:hover{
         border: 1px solid rgb(0, 0, 0);
   }
 
-  .healthy-quote1 p{
+  .healthy-quote1-c p{
 
     margin-top: 2px;
     margin-bottom: 15px;
@@ -234,23 +234,23 @@
   }
 
 
-  .join-now{
+  .join-now-c{
     background-color: #f9f5f2;
     text-align: center;
     padding: 50px;
     padding-bottom: 60px;
   }
-  .join-now p{
+  .join-now-c p{
     font-size: 35px;
     font-weight: bold;
     text-align: center;
   }
 
-  .join-now h3{
+  .join-now-c h3{
     font-size: 20px;
   }
 
-  .join-now-btn{
+  .join-now-btn-c{
     margin: 20px;
     border: 40px;
     color: black;
@@ -263,6 +263,6 @@
     font-weight: bold;
   }
 
-  .join-now-btn:hover{
+  .join-now-btn-c:hover{
     border: 1px solid rgb(0, 0, 0);
 }

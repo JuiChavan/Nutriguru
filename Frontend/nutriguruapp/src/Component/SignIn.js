@@ -42,16 +42,16 @@ export default function SignIn() {
   };
 
   return (
-    <div className="sign-in">
-      <div className="sign-in-form-container">
-        <form className="signIn-form" onSubmit={handleSubmit}>
-          <div className="signin-tagline">
+    <div className="sign-in-c">
+      <div className="sign-in-form-container-c">
+        <form className="signIn-form-c" onSubmit={handleSubmit}>
+          <div className="signin-tagline-c">
             <p>Sign In</p>
           </div>
-          <label htmlFor="email" className="signIn-label">Email</label>
+          <label htmlFor="email" className="signIn-label-c">Email</label>
           <br />
           <input
-            className="signIn-input"
+            className="signIn-input-c"
             id="email"
             type="email"
             value={email}
@@ -59,9 +59,9 @@ export default function SignIn() {
             required
           />
           <br />
-          <label htmlFor="password" className="signIn-label">Password</label>
+          <label htmlFor="password" className="signIn-label-c">Password</label>
           <input
-            className="signIn-input"
+            className="signIn-input-c"
             id="password"
             type="password"
             value={password}
@@ -69,25 +69,25 @@ export default function SignIn() {
             required
           />
           <br />
-          <div className="invalid-user">
+          <div className="invalid-user-c">
             <p>{invalid}</p>
           </div>
           <button
-            className="signIn-btnSubmit"
+            className="signIn-btnSubmit-c"
             type="submit"
           >
             Submit
           </button>
           <br />
           <br />
-          <div className="sign-up-link">
+          <div className="sign-up-link-c">
             <h6>
               Don't have an account <span>?</span>
               <Link to="/SignUpForClient"> Sign up as Client </Link>
             / <Link to="/SignUpForNutritionist"> Sign up as Nutritionist </Link>
             </h6>
           </div>
-          <footer className="signIn-page-footer">
+          <footer className="signIn-page-footer-c">
             <p>&copy; 2024 Nutriguru. All rights reserved.</p>
           </footer>
         </form>

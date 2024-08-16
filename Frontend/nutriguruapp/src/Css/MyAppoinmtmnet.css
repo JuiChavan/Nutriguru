@@ -1,48 +1,50 @@
-.my-appointment-container {
-    background-image: url('../Images/4.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 50px auto;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .my-appointment-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #f7f7f7;
-  }
-  
-  .my-appointment-container p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-  
-  .my-appointment-container strong {
-    color: #ffeb3b;
-  }
-  
-  .my-appointment-container button {
-    display: block;
-    width: 100%;
-    padding: 10px 20px;
-    margin-top: 20px;
-    font-size: 18px;
-    color: #fff;
-    background-color: #ff5722;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .my-appointment-container button:hover {
-    background-color: #e64a19;
-  }
-  
+/* Container for the whole page */
+.myInfo {
+  display: flex; /* Enable Flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px; /* Add padding for better spacing */
+  background-image: url("../Images/MyInfo.jfif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Container for the client information */
+.my-appointment-container-c {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically within the container */
+  background-color: #fff; /* Background color of the info box */
+  border: 1px solid #ddd; /* Border for the info box */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 0 70px rgb(15, 1, 1); /* Subtle shadow for better visibility */
+  padding: 20px; /* Padding inside the info box */
+  max-width: 440px; /* Limit the width for better readability */
+  width: 100%; /* Make the container responsive */
+}
+
+.my-appointment-container-c h2 {
+  margin-bottom: 20px; /* Space between heading and content */
+}
+
+.my-appointment-container-c p {
+  text-align: left; /* Left align all paragraph text */
+  margin: 10px 0; /* Vertical spacing between paragraphs */
+  width: 100%; /* Ensure paragraph takes full width within the container */
+}
+
+/* Style for the button */
+#my-appointment-container-c-btn {
+  margin-top: 20px; /* Space above the button */
+  padding: 10px 20px; /* Button padding */
+  background-color: #61232e; /* Button background color */
+  color: #ffffff; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size for the button text */
+}

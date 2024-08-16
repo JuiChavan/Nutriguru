@@ -2,7 +2,6 @@
 /* General Styles */
 .allAppointments {
     font-family: Arial, sans-serif;
-    margin: 0;
     padding: 0;
     height: 100vh; /* Full viewport height */
     width: 100%;  /* Full viewport width */
@@ -49,9 +48,7 @@
     box-shadow: 0 0 970px rgba(248, 248, 248, 0.7);
 }
 
-.allAppointments-appointment-Table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+
 
 /* Button Styles */
 .allAppointments-add-diet-plan {
@@ -79,10 +76,11 @@
     margin-left: 910px;
     border-radius: 14px;
     background-color: #4a9e95;
-    margin-top: -150px;
+    margin-top: -120px;
 }
 /* Logout Button Styles */
 .addbtnhead-log-out {
+    
     background-color: #30a2a0; /* Teal background */
     color: white;
     border: none;

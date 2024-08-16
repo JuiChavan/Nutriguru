@@ -1,5 +1,5 @@
 /* Ensure the sign-up container takes up the full viewport height */
-.sign-up {
+.sign-up-n {
   display: flex;
   height: 100%; /* Full viewport height */
   width: 100%; /* Full viewport width */
@@ -11,7 +11,7 @@
 }
 
 /* Styling for the background image */
-.sign-up::before {
+.sign-up-n::before {
   content: ""; /* Needed for the pseudo-element to work */
   background-image: url("../Images/1\ \(2\).jfif");
   background-size: cover;
@@ -24,7 +24,7 @@
   z-index: 0; /* Ensure it is behind the other content */
 }
 
-.s-up {
+.s-up-n {
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -32,13 +32,13 @@
   font-size: 50px;
   margin-left: 35%;
 }
-.s-up p{
+.s-up-n p{
   text-align: center;
   justify-content: center;
   align-items: center;
 }
 /* Ensure the tagline is positioned above the background image */
-.signup-tagline {
+.signup-tagline-n {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +54,7 @@
 }
 
 /* Center the form container in the sign-up container */
-.sign-up-form-container {
+.sign-up-form-container-n {
   display: flex;
   justify-content: center; /* Center horizontally */
   width: 100%; /* Full width of the parent */
@@ -65,7 +65,7 @@
 }
 
 /* Styling for the form itself */
-.signUp-form {
+.signUp-form-n {
   display: flex;
   flex-direction: column; /* Stack children vertically */
   align-items: flex-start; /* Align items to the left */
@@ -80,7 +80,7 @@
 }
 
 /* Label styling */
-.signUp-label {
+.signUp-label-n {
   font-weight: bold;
   margin-bottom: 10px;
   width: 100%; /* Ensure labels take full width */
@@ -89,7 +89,7 @@
 
 
 /* Input field styling */
-.signUp-input {
+.signUp-input-n {
   width: 100%;
   height: 40px;
   padding: 10px;
@@ -99,7 +99,7 @@
 }
 
 /* Submit button styling */
-.signUp-btnSubmit {
+.signUp-btnSubmit-n {
   margin-top: 20px;
   border-radius: 5px;
   border: 2px solid black;
@@ -113,14 +113,22 @@
   font-weight: bold;
 }
 
-.signUp-btnSubmit:hover {
+.signUp-btnSubmit-n:hover {
   background-color: #000;
 }
 
 /* Optional styling */
-.opt {
+.opt-n {
   margin: 10px;
   padding: 10px;
 }
 
+.signIn-input-email{
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
