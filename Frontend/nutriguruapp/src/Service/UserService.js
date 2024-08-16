@@ -3,7 +3,7 @@ const baseUrl = "http://localhost:9090/user";
 
 class UserService {
   signIn(credentials) {
-    return axios.post(`${baseUrl}/signIn`, credentials, {
+    return axios.post(`http://localhost:9090/user/signIn`, credentials, {
       headers: {
         "Content-Type": "application/json",
       },

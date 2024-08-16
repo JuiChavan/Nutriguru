@@ -13,6 +13,7 @@ import MyAppointment from './Component/MyAppointment'
 import SignUpForClient from './Component/SignUpForClient'
 import SignUpForNutritionist from './Component/SignUpForNutritionist'
 import About from './Component/AboutUs';
+import ShowDietPlan from './Component/ShowDietPlan'
 function App() {
   return (
     <div className="App">
@@ -31,6 +32,7 @@ function App() {
         <Route path='/signUpForClient' element={<SignUpForClient/>}></Route>
         <Route path='/signUpForNutritionist' element={<SignUpForNutritionist/>}/>
         <Route path='/aboutUs'element={<About/>}/>
+        <Route  path='showDietPlan/:clientId' element={<ShowDietPlan/>}/>
       </Routes>
     </div>
   );

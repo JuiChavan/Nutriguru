@@ -83,7 +83,8 @@ export default function SignIn() {
           <div className="sign-up-link">
             <h6>
               Don't have an account <span>?</span>
-              <Link to="/signUp"> Sign up</Link>
+              <Link to="/SignUpForClient"> Sign up as Client </Link>
+            / <Link to="/SignUpForNutritionist"> Sign up as Nutritionist </Link>
             </h6>
           </div>
           <footer className="signIn-page-footer">

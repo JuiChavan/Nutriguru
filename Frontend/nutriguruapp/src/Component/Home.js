@@ -37,7 +37,6 @@ export default function Home(){
   const aboutUsPage=()=>{
     navigate('/aboutUs')
   }
-
   return (
     <div className='div-body'>
 
@@ -67,7 +66,7 @@ export default function Home(){
       </div>
     
       <div className='healthy-quote1'>
-        <p>SAY GOODBYE TO BORING DIETS AND HELLO TO NUTRIENT-RICH EATING!</p>
+        <p>SAY GOODBYE TO BORING DIETS AND HELLO TO NUTRIENT-RICH EATING !</p>
       </div>
       
 

@@ -19,6 +19,9 @@ class AppointmentService {
       withCredentials: true,
     });
   };
+
+ 
+
 }
 
 export default new AppointmentService();

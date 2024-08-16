@@ -5,7 +5,7 @@
   background-position: center; /* Centers the image */
   background-attachment: fixed; /* Keeps the image fixed during scrolling */
   background-repeat: no-repeat; /* Prevents the image from repeating */
-  height: 890px; /* Sets the height of the container to 100% of the viewport height */
+  height: 100%; /* Sets the height of the container to 100% of the viewport height */
   width: 100%; 
 }
 .nutritionists-container {

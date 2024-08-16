@@ -2,13 +2,15 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import UserService from "../Service/UserService";
-
+import { useNavigate } from "react-router-dom";
 export default function MyAppointment() {
   const location = useLocation();
+  const navigate = useNavigate(); 
   const email = location.state?.clientEmail;
   const [clientName, setClientName] = useState('');
   const [clientId, setClientId] = useState(null);
-
+  const [dietPlan, setDietPlan] = useState(null);
+  const [showDietPlan, setShowDietPlan] = useState(false);
   useEffect(() => {
     setClientName(email)
     if (email) {
@@ -27,7 +29,7 @@ export default function MyAppointment() {
     }
   }, [email]);
 
-  useEffect(() => {
+ /* useEffect(() => {
     if (clientId !== null) {
       UserService.getDietPlan(clientId)
         .then((resp) => {
@@ -38,14 +40,21 @@ export default function MyAppointment() {
         });
     }
   }, [clientId]);
-
+  const handleShowDietPlan = () => {
+    setShowDietPlan(true);
+  };*/
+  const handleShowDietPlan = () => {
+    if (clientId) {
+      navigate(`/showDietPlan/${clientId}`);
+    }
+  };
   return (
-    <div>
-      Client email: {email}
-      <br />
-      Client name: {clientName}
-      <br />
-      Client ID: {clientId}
+    <div className="my-appointment-container">
+      <h2>Client Information</h2>
+      <p><strong>Email:</strong> {email}</p>
+      <p><strong>Name:</strong> {clientName}</p>
+      <p><strong>ID:</strong> {clientId}</p>
+      <button onClick={handleShowDietPlan}>Show Diet Plan</button>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 .sign-in {
   display: flex;
   flex-direction: column; /* Stack children vertically */
-  min-height: 425px; /* Full viewport height */
+  min-height: 565px; /* Full viewport height */
 }
 
 .sign-in-form-container {
@@ -27,8 +27,8 @@
   opacity: 0.8;
   background-color: white;
   text-align: left;
-  margin-left: 510px;
-  margin-top:40px
+  margin-left: 650px;
+  margin-top:90px
 }
 
 .signin-tagline {

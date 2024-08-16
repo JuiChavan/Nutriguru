@@ -215,7 +215,7 @@
         border: 1px solid rgb(0, 0, 0);
   }
 
-  .healthy-quote1{
+  .healthy-quote1 p{
 
     margin-top: 2px;
     margin-bottom: 15px;
@@ -230,6 +230,7 @@
     border: 1px solid rgb(0, 0, 0);
     box-shadow: 0 0 10px rgba(18, 9, 0, 0.76);
     font-weight: bold;
+    text-align: center;
   }
 
 
