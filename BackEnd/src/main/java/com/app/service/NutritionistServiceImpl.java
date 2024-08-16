@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -137,6 +138,10 @@ public class NutritionistServiceImpl implements NutritionistService {
 	 
 	 @Override
 		public ResponeNutritionistDto addNutritionist(RegisterNtritionistDto ntritionistDto) {
+		 	BCryptPasswordEncoder bCryptPasswordEncoder=new BCryptPasswordEncoder();
+		 	String encodedPassword=bCryptPasswordEncoder.encode(ntritionistDto.getPassword());
+		 	ntritionistDto.setPassword(encodedPassword);
+		 	
 			Role role = Role.valueOf(ntritionistDto.getRole().toUpperCase());
 			Category category = categoryRepository.findByName(ntritionistDto.getCategory())
 				    .orElseThrow(() -> new RuntimeException("Category '" + ntritionistDto.getCategory() + "' not found. Please ensure the category exists."));
