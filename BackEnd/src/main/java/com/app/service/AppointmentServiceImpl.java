@@ -10,6 +10,10 @@ import javax.transaction.Transactional;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DeadlockLoserDataAccessException;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 import com.app.custom_exception.AlreadyExistsException;
@@ -43,6 +47,8 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	@Autowired
 	private AppointmentRepository appointmentRepository;
+	@Autowired
+	private JavaMailSender mailSender;
 
 	public Slot checkAvailableSlots(Slot slot, LocalDate date, Nutritionist nutritionist) throws SlotsUnavailable {
 		// find count in Nutritionist table matched by id,date,Slot
@@ -60,7 +66,8 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-
+	@Transactional
+    @Retryable(value = DeadlockLoserDataAccessException.class, maxAttempts = 3)
 	public AppointmentDTO bookAppointment(Long userId, Long nutritionistId, String date, String timeSlot)
 			throws SlotsUnavailable, AlreadyExistsException {
 
@@ -144,8 +151,47 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointmentDTO.setNutritionistName(nutritionist.get().getName());
 		appointmentDTO.setEmail(nutritionist.get().getEmail());
 
+		// Send confirmation email to the client
+		 sendAppointmentConfirmationEmail(newClient, appointmentDTO);
+
 		return appointmentDTO;
 	}
+	
+	  private void sendAppointmentConfirmationEmail(Client client, AppointmentDTO
+	  appointmentDTO) { String to = client.getEmail(); String subject =
+	  "Appointment Confirmation"; String body = "Dear " + client.getName() +
+	  ",\n\n" + "Your appointment with " + appointmentDTO.getNutritionistName() +
+	 " is confirmed.\n" + "Details:\n" + "Date: " + appointmentDTO.getDate() +
+	  "\n" + "Time: " + appointmentDTO.getTimeSlot() + "\n\n" +
+	  "Thank you for choosing our services!\n" + "Best regards,\n" +
+	  "NutriGuru";
+	
+	sendEmail(to, subject, body);
+	}
+	 
+//	
+//	  private void sendEmail(String to, String subject, String body) {
+//	  SimpleMailMessage message = new SimpleMailMessage();
+//	  message.setTo(to);
+//	  message.setSubject(subject);
+//	  message.setText(body); 
+//	  mailSender.send(message);
+//	  }
+	  
+	  private void sendEmail(String to, String subject, String body) {
+		    try {
+		        SimpleMailMessage message = new SimpleMailMessage();
+		        message.setTo(to);
+		        message.setSubject(subject);
+		        message.setText(body); 
+		        System.out.println("Sending email to " + to);  // Debugging statement
+		        mailSender.send(message);
+		        System.out.println("Email sent successfully!");  // Debugging statement
+		    }
+		    catch (Exception e) {
+		        System.err.println("Failed to send email: " + e.getMessage());  // Log the error
+		    }
+	  }
 
 	@Override
 	public List<AppointmentDTO> getAllAppointmentsByNutritionist(Long id) {
